@@ -18,9 +18,6 @@
             android:name=".RuanganActivity"
             android:exported="false" />
         <activity
-            android:name=".SplashScreen"
-            android:exported="false" />
-        <activity
             android:name=".LoginPage"
             android:label="@string/login"
             android:parentActivityName=".MainActivity">
@@ -37,7 +34,7 @@
                 android:value=".MainActivity" />
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".Splash"
             android:exported="true"
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar">
             <intent-filter>
@@ -46,6 +43,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MainActivity"></activity>
         <activity android:name=".PeminjamanPage" />
     </application>
 
