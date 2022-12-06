@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".RuanganActivity"
+    tools:context=".BarangActivity"
     android:background="@drawable/background">
 
     <LinearLayout
@@ -27,7 +27,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Silahkan Pilih Ruangan"
+            android:text="Silahkan Pilih Barang"
             android:textSize="30sp"
             android:fontFamily="@font/calibri"
             android:padding="10dp"/>

@@ -129,6 +129,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
                     android:layout_weight="50"
+                    android:id="@+id/pinjamRuangan"
+                    android:onClick="toListRuangan"
                     app:cardBackgroundColor="#ffc6c6"
                     app:cardCornerRadius="8dp"
                     app:cardElevation="4dp"
@@ -138,6 +140,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+
                         android:orientation="vertical">
 
                         <ImageView
@@ -165,6 +168,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_weight="50"
+                    android:onClick="toListBarang"
+                    android:id="@+id/pinjamAlat"
                     app:cardBackgroundColor="#f9f9f9"
                     app:cardCornerRadius="8dp"
                     app:cardElevation="4dp"
@@ -213,6 +218,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
                     android:layout_weight="50"
+                    android:id="@+id/jadwalAlat"
                     app:cardBackgroundColor="#f9f9f9"
                     app:cardCornerRadius="8dp"
                     app:cardElevation="4dp"
@@ -250,6 +256,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_weight="50"
+                    android:id="@+id/jadwalRuangan"
                     app:cardBackgroundColor="#a4bdff"
                     app:cardCornerRadius="8dp"
                     app:cardElevation="4dp"

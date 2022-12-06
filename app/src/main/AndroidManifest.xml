@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="id.ac.umn.yapura">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -15,7 +18,15 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".DetailRuangan"
+            android:name=".BarangActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".detailRuangan"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -23,14 +34,12 @@
         </activity>
         <activity
             android:name=".RuanganActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SplashScreen"
-            android:exported="false" />
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
         <activity
             android:name=".LoginPage"
             android:label="@string/login"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
@@ -44,7 +53,7 @@
                 android:value=".MainActivity" />
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".Splash"
             android:exported="true"
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar">
             <intent-filter>
@@ -53,7 +62,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PeminjamanPage" />
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar">
+            >
+        </activity>
+        <activity android:name=".PeminjamanPage"
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"/>
     </application>
 
 </manifest>

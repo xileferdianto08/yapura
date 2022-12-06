@@ -127,13 +127,13 @@
                             android:textColorHint="#FFB3B3B3">
 
                             <EditText
-                                android:id="@+id/username"
+                                android:id="@+id/email"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:drawableStart="@drawable/ic_person_gray_24dp"
                                 android:drawablePadding="16dp"
                                 android:fontFamily="@font/calibri"
-                                android:hint="username"
+                                android:hint="Email Student/Staff"
                                 android:inputType="text"
                                 android:maxLines="1"
                                 android:textColor="@android:color/black"

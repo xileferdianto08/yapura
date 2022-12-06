@@ -1,6 +1,7 @@
 package id.ac.umn.yapura;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,6 +15,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -22,23 +24,24 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 
-public class RuanganActivity extends AppCompatActivity {
+public class BarangActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
     RecyclerView.LayoutManager manager;;
     List<ruanganList> ruangan;
 
 
-    private final String URL_LIST_RUANGAN = "https://yapuraapi.000webhostapp.com/yapura_api/ruangan/display_ruangan.php";
+    private final String URL_LIST_BARANG = "https://yapuraapi.000webhostapp.com/yapura_api/barang/display_barang.php";
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ruangan);
+        setContentView(R.layout.activity_barang);
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
 //        requestQueue = Volley.newRequestQueue(getApplicationContext());
@@ -48,7 +51,7 @@ public class RuanganActivity extends AppCompatActivity {
 
         manager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(manager);
-        adapter = new RuanganAdapter(ruangan, RuanganActivity.this);
+        adapter = new RuanganAdapter(ruangan, BarangActivity.this);
         recyclerView.setAdapter(adapter);
 
 
@@ -56,7 +59,7 @@ public class RuanganActivity extends AppCompatActivity {
 
     private void getData(){
 
-        StringRequest request = new StringRequest(Request.Method.GET, URL_LIST_RUANGAN,
+        StringRequest request = new StringRequest(Request.Method.GET, URL_LIST_BARANG,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -69,17 +72,17 @@ public class RuanganActivity extends AppCompatActivity {
                             JSONArray arr = new JSONArray(response);
                             JSONObject obj = arr.getJSONObject(0);
 
-                           JSONArray getArr = obj.getJSONArray("server_response");
+                            JSONArray getArr = obj.getJSONArray("server_response");
 
-                           Toast.makeText(RuanganActivity.this, "ada: "+getArr.length(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(BarangActivity.this, "ada: "+getArr.length(), Toast.LENGTH_SHORT).show();
                             for (i = 0; i < getArr.length(); i++) {
                                 JSONObject resp = getArr.getJSONObject(i);
-                                Toast.makeText(RuanganActivity.this, "di mana gw: "+i, Toast.LENGTH_SHORT).show();
+                                Toast.makeText(BarangActivity.this, "di mana gw: "+i, Toast.LENGTH_SHORT).show();
 
                                 ruanganList newData = new ruanganList();
                                 newData.setId(resp.getInt("id"));
                                 newData.setNama(resp.getString("nama").trim());
-                                newData.setMaxCapacity(resp.getInt("maxCapacity"));
+                                newData.setMaxCapacity(resp.getInt("maxQty"));
                                 newData.setDescription(resp.getString("description").trim());
                                 newData.setFoto(resp.getString("gambar"));
 
@@ -89,7 +92,7 @@ public class RuanganActivity extends AppCompatActivity {
 
 
 
-                                Toast.makeText(RuanganActivity.this, "adaa: "+ruangan.size(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(BarangActivity.this, "adaa: "+ruangan.size(), Toast.LENGTH_SHORT).show();
 
 
                             }
@@ -98,7 +101,7 @@ public class RuanganActivity extends AppCompatActivity {
                         } catch (JSONException e){
                             e.printStackTrace();
                         }
-                        Toast.makeText(RuanganActivity.this, "di mana gww woi: "+i, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(BarangActivity.this, "di mana gww woi: "+i, Toast.LENGTH_SHORT).show();
                         adapter.notifyDataSetChanged();
                     }
                 }, new Response.ErrorListener() {
@@ -113,7 +116,8 @@ public class RuanganActivity extends AppCompatActivity {
 
     }
 
+
     public void backToMainMenu(View view){
-        startActivity(new Intent(RuanganActivity.this, PeminjamanPage.class));
+        startActivity(new Intent(BarangActivity.this, PeminjamanPage.class));
     }
 }
