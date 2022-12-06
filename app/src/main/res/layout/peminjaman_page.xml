@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".PeminjamanPage"
     android:background="@drawable/background">
-
     <RelativeLayout
         android:id="@+id/relativeLayout2"
         android:layout_width="match_parent"
@@ -35,7 +34,8 @@
                     android:layout_width="28dp"
                     android:layout_height="28dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/ic_home_gray_24dp" />
+                    android:src="@drawable/ic_home_gray_24dp"
+                    />
 
                 <View
                     android:layout_width="84dp"
@@ -43,7 +43,7 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="8dp"
                     android:background="@color/colorPrimaryDark"
-                    android:visibility="invisible" />
+                     />
 
             </LinearLayout>
 
@@ -51,20 +51,22 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="50"
+
                 android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="28dp"
                     android:layout_height="28dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/ic_person_gray_24dp" />
+                    android:src="@drawable/ic_baseline_list_alt_24" />
 
                 <View
                     android:layout_width="84dp"
                     android:layout_height="2dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="8dp"
-                    android:background="@color/colorPrimaryDark" />
+                    android:background="@color/colorPrimaryDark"
+                    android:visibility="invisible"/>
 
             </LinearLayout>
 
@@ -218,6 +220,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
                     android:layout_weight="50"
+                    android:onClick="toJadwalBarang"
                     android:id="@+id/jadwalAlat"
                     app:cardBackgroundColor="#f9f9f9"
                     app:cardCornerRadius="8dp"
@@ -256,6 +259,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_weight="50"
+                    android:onClick="toJadwalRuangan"
                     android:id="@+id/jadwalRuangan"
                     app:cardBackgroundColor="#a4bdff"
                     app:cardCornerRadius="8dp"

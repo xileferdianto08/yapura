@@ -42,7 +42,7 @@
                 android:layout_marginTop="30dp"
                 android:fontFamily="@font/calibri"
                 android:padding="50dp"
-                android:text="Capacity: "
+                android:text="Quantity: "
                 android:textAlignment="viewStart"
                 android:textColor="@color/gray"
                 android:textSize="18dp" />

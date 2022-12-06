@@ -31,4 +31,12 @@ public class PeminjamanPage extends AppCompatActivity {
     public void toListBarang(View view){
         startActivity(new Intent(PeminjamanPage.this, BarangActivity.class));
     }
+
+    public void toJadwalRuangan(View view){
+        startActivity(new Intent(PeminjamanPage.this, JadwalRuangan.class));
+    }
+
+    public void toJadwalBarang(View view){
+        startActivity(new Intent(PeminjamanPage.this, JadwalAlat.class));
+    }
 }

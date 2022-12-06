@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginEnd="0dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="210dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/backgroud1">
+
+            <TextView
+                android:id="@+id/namaRuangan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-5dp"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/calibri"
+                android:padding="25dp"
+                android:text="Kelas"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-30dp"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/calibri"
+                android:padding="50dp"
+                android:text="Capacity: "
+                android:textAlignment="viewStart"
+                android:textColor="@color/lightWhite"
+                android:textSize="18dp" />
+
+
+            <TextView
+                android:id="@+id/capacity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="19dp"
+                android:fontFamily="@font/calibri"
+                android:padding="50dp"
+                android:text="20"
+                android:textAlignment="viewStart"
+                android:textColor="@color/lightWhite"
+                android:textSize="18dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-30dp"
+                android:layout_marginTop="40dp"
+                android:fontFamily="@font/calibri"
+                android:padding="50dp"
+                android:text="From: "
+                android:textAlignment="viewStart"
+                android:textColor="@color/gray"
+                android:textSize="18dp" />
+            <TextView
+                android:id="@+id/startDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="43dp"
+                android:fontFamily="@font/calibri"
+                android:padding="50dp"
+                android:text="2020-05-21"
+                android:textAlignment="viewStart"
+                android:textColor="@color/gray"
+                android:textSize="16dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="98dp"
+                android:layout_marginTop="41dp"
+                android:fontFamily="@font/calibri"
+                android:padding="50dp"
+                android:text="at "
+                android:textAlignment="viewStart"
+                android:textColor="@color/gray"
+                android:textSize="18dp" />
+            <TextView
+                android:id="@+id/startTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="115dp"
+                android:layout_marginTop="43dp"
+                android:fontFamily="@font/calibri"
+                android:padding="50dp"
+                android:text="15:10"
+                android:textAlignment="viewStart"
+                android:textColor="@color/gray"
+                android:textSize="16dp" />
+            <TextView
+                android:id="@+id/endDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="63dp"
+                android:fontFamily="@font/calibri"
+                android:padding="50dp"
+                android:text="2020-05-21"
+                android:textAlignment="viewStart"
+                android:textColor="@color/gray"
+                android:textSize="16dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="98dp"
+                android:layout_marginTop="61dp"
+                android:fontFamily="@font/calibri"
+                android:padding="50dp"
+                android:text="at "
+                android:textAlignment="viewStart"
+                android:textColor="@color/gray"
+                android:textSize="18dp" />
+            <TextView
+                android:id="@+id/endTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="115dp"
+                android:layout_marginTop="63dp"
+                android:fontFamily="@font/calibri"
+                android:padding="50dp"
+                android:text="15:10"
+                android:textAlignment="viewStart"
+                android:textColor="@color/gray"
+                android:textSize="16dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-30dp"
+                android:layout_marginTop="60dp"
+                android:fontFamily="@font/calibri"
+                android:padding="50dp"
+                android:text="Until: "
+                android:textAlignment="viewStart"
+                android:textColor="@color/gray"
+                android:textSize="18dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-30dp"
+                android:layout_marginTop="85dp"
+                android:fontFamily="@font/calibri"
+                android:padding="50dp"
+                android:text="Necessity: "
+
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                />
+            <TextView
+                android:id="@+id/necessity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="70dp"
+                android:layout_marginTop="110dp"
+                android:fontFamily="@font/calibri"
+                android:padding="25dp"
+                android:text="Kelas"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+
+
+            <ImageView
+                android:id="@+id/fotoRuangan"
+                android:layout_width="125dp"
+                android:layout_height="125dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="4dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/logoumn" />
+
+
+
+        </RelativeLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

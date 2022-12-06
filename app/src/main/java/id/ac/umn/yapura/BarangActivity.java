@@ -1,7 +1,6 @@
 package id.ac.umn.yapura;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,7 +14,6 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -24,15 +22,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 
 public class BarangActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
-    RecyclerView.LayoutManager manager;;
-    List<ruanganList> ruangan;
+    RecyclerView.LayoutManager manager;
+    List<barangList> barang;
 
 
     private final String URL_LIST_BARANG = "https://yapuraapi.000webhostapp.com/yapura_api/barang/display_barang.php";
@@ -45,13 +42,13 @@ public class BarangActivity extends AppCompatActivity {
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
 //        requestQueue = Volley.newRequestQueue(getApplicationContext());
-        ruangan = new ArrayList<>();
+        barang = new ArrayList<>();
 
         getData();
 
         manager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(manager);
-        adapter = new RuanganAdapter(ruangan, BarangActivity.this);
+        adapter = new BarangAdapter(barang, BarangActivity.this);
         recyclerView.setAdapter(adapter);
 
 
@@ -73,35 +70,22 @@ public class BarangActivity extends AppCompatActivity {
                             JSONObject obj = arr.getJSONObject(0);
 
                             JSONArray getArr = obj.getJSONArray("server_response");
-
-                            Toast.makeText(BarangActivity.this, "ada: "+getArr.length(), Toast.LENGTH_SHORT).show();
                             for (i = 0; i < getArr.length(); i++) {
                                 JSONObject resp = getArr.getJSONObject(i);
-                                Toast.makeText(BarangActivity.this, "di mana gw: "+i, Toast.LENGTH_SHORT).show();
-
-                                ruanganList newData = new ruanganList();
+                                barangList newData = new barangList();
                                 newData.setId(resp.getInt("id"));
                                 newData.setNama(resp.getString("nama").trim());
-                                newData.setMaxCapacity(resp.getInt("maxQty"));
+                                newData.setMaxQty(resp.getInt("maxQty"));
                                 newData.setDescription(resp.getString("description").trim());
                                 newData.setFoto(resp.getString("gambar"));
 
-
-
-                                ruangan.add(newData);
-
-
-
-                                Toast.makeText(BarangActivity.this, "adaa: "+ruangan.size(), Toast.LENGTH_SHORT).show();
-
-
+                                barang.add(newData);
                             }
 
 
                         } catch (JSONException e){
                             e.printStackTrace();
                         }
-                        Toast.makeText(BarangActivity.this, "di mana gww woi: "+i, Toast.LENGTH_SHORT).show();
                         adapter.notifyDataSetChanged();
                     }
                 }, new Response.ErrorListener() {
