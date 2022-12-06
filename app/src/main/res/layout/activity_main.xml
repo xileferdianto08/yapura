@@ -45,7 +45,7 @@
         android:id="@+id/login2"
         android:layout_width="171dp"
         android:layout_height="61dp"
-        android:onClick="toLogin"
+        android:onClick="toRegister"
         android:backgroundTint="#003D73"
         android:textColor="#FFFFFF"
         android:text="REGISTER"

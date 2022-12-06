@@ -38,7 +38,7 @@ public class JadwalAlat extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_barang);
+        setContentView(R.layout.activity_jadwal_alat);
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
 //        requestQueue = Volley.newRequestQueue(getApplicationContext());

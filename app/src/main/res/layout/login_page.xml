@@ -193,6 +193,7 @@
                     android:id="@+id/signUp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:onClick="toRegister"
                     android:text="SIGN UP"
                     android:textColor="@color/black"
                     android:layout_below="@id/textView3"

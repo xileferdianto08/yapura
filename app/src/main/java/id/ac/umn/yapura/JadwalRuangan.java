@@ -38,7 +38,7 @@ public class JadwalRuangan extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_barang);
+        setContentView(R.layout.activity_jadwal_ruangan);
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
 //        requestQueue = Volley.newRequestQueue(getApplicationContext());
@@ -70,7 +70,7 @@ public class JadwalRuangan extends AppCompatActivity {
                             JSONObject obj = arr.getJSONObject(0);
 
                             JSONArray getArr = obj.getJSONArray("data_peminjaman_r");
-                            if(getArr.length() < 0){
+                            if(getArr.length() < 1){
                                 Toast.makeText(JadwalRuangan.this, "Data belum ada", Toast.LENGTH_SHORT).show();
                             }else {
                                 for (i = 0; i < getArr.length(); i++) {
@@ -87,7 +87,7 @@ public class JadwalRuangan extends AppCompatActivity {
                                     newData.setFoto(resp.getString("gambar"));
 
                                     jadwalRuangan.add(newData);
-                            }
+                                }
 
                             }
 

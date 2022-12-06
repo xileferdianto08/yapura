@@ -53,13 +53,20 @@ public class LoginPage extends AppCompatActivity {
             String emailKey = email.getText().toString();
             String passwordKey = password.getText().toString();
 
-            if(!emailKey.isEmpty() || !passwordKey.isEmpty()){
-                Login(emailKey, passwordKey);
-            } else {
-                email.setError("Email tidak boleh kosong");
-                password.setError("Password tidak boleh kosong");
-            }
+//            if(!emailKey.isEmpty() || !passwordKey.isEmpty()){
+//                Login(emailKey, passwordKey);
+//            } else {
+//                email.setError("Email tidak boleh kosong");
+//                password.setError("Password tidak boleh kosong");
+//            }
 
+            if(emailKey.isEmpty()){
+                email.setError("Email tidak boleh kosong");
+            }else if(passwordKey.isEmpty()){
+                password.setError("Password tidak boleh kosong");
+            } else {
+                Login(emailKey, passwordKey);
+            }
 
         });
     }
@@ -132,6 +139,10 @@ public class LoginPage extends AppCompatActivity {
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
+    }
+
+    public void toRegister(View view){
+        startActivity(new Intent(LoginPage.this, RegisterPage.class));
     }
 
 }

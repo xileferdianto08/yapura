@@ -38,8 +38,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ruangan yang sedang digunakan"
-                android:textSize="25sp"
+                android:text="Alat yang sedang digunakan"
+                android:textSize="30sp"
                 android:fontFamily="@font/calibri"
                 android:padding="10dp"/>
 
@@ -106,7 +106,6 @@
             </LinearLayout>
         </LinearLayout>
     </RelativeLayout>
-
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
