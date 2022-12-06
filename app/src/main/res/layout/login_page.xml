@@ -164,8 +164,7 @@
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
-
-
+                
                 <Button
                     android:id="@+id/btnLogin"
                     android:layout_width="match_parent"
@@ -178,6 +177,27 @@
                     android:textAllCaps="false"
                     android:textColor="#ffffff"
                     android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="DON'T HAVE AN ACCOUNT?"
+                    android:textColor="@color/black"
+                    android:layout_below="@+id/btnLogin"
+                    android:layout_marginTop="10dp"
+                    android:textAlignment="center"
+                    android:gravity="center_horizontal" />
+
+                <TextView
+                    android:id="@+id/signUp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="SIGN UP"
+                    android:textColor="@color/black"
+                    android:layout_below="@id/textView3"
+                    android:textAlignment="center"
+                    android:gravity="center_horizontal" />
             </LinearLayout>
 
         </ScrollView>
