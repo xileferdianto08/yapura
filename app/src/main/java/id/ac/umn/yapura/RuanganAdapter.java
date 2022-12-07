@@ -55,7 +55,7 @@ public class RuanganAdapter extends RecyclerView.Adapter<RuanganAdapter.HolderIt
         return ruangan.size();
     }
 
-    public class HolderItem extends RecyclerView.ViewHolder{
+    public class HolderItem extends RecyclerView.ViewHolder implements View.OnClickListener{
         ImageView foto;
         TextView nama, maxCapacity;
         Button btnBook;
@@ -69,5 +69,24 @@ public class RuanganAdapter extends RecyclerView.Adapter<RuanganAdapter.HolderIt
 //            btnBook = (Button)  v.findViewById(R.id.btnBook);
         }
 
-   }
+
+        @Override
+        public void onClick(View v) {
+            String post = String.valueOf(getLayoutPosition());
+            int id = ruangan.get(getLayoutPosition()).getId();
+            String nama = ruangan.get(getLayoutPosition()).getNama();
+            String desc = ruangan.get(getLayoutPosition()).getDescription();
+            int maxCapacity = ruangan.get(getLayoutPosition()).getMaxCapacity();
+            String foto = ruangan.get(getLayoutPosition()).getFoto();
+
+            Intent ruanganDetail = new Intent(itemView.getContext(), DetailRuangan.class);
+            ruanganDetail.putExtra("id", id);
+            ruanganDetail.putExtra("nama", nama);
+            ruanganDetail.putExtra("desc", desc);
+            ruanganDetail.putExtra("maxCapacity", maxCapacity);
+            ruanganDetail.putExtra("foto", foto);
+            itemView.getContext().startActivity(ruanganDetail);
+
+        }
+    }
 }

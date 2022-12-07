@@ -141,6 +141,11 @@ public class LoginPage extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
 
+    public void toMainAct(View view){
+        startActivity(new Intent(LoginPage.this, MainActivity.class));
+    }
+
+
     public void toRegister(View view){
         startActivity(new Intent(LoginPage.this, RegisterPage.class));
     }

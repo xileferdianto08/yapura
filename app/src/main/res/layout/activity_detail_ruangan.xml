@@ -22,6 +22,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:scaleType="centerCrop"
+                    android:id="@+id/foto"
                     android:src="@drawable/lecture_hall"/>
                 <ImageView
                     android:layout_width="wrap_content"
@@ -52,20 +53,21 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:id="@+id/namaRuangan"
                             android:layout_marginBottom="4dp"
                             android:fontFamily="@font/calibri"
                             android:text="@string/LH"
                             android:textColor="@color/black"
                             android:textSize="24dp"/>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/calibri"
-                            android:text="Lobby D"
-                            android:textSize="16sp"
-                            android:textColor="@color/green"
-                            android:textStyle="bold" />
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:fontFamily="@font/calibri"-->
+<!--                            android:text="Lobby D"-->
+<!--                            android:textSize="16sp"-->
+<!--                            android:textColor="@color/green"-->
+<!--                            android:textStyle="bold" />-->
 
                     </LinearLayout>
                 </LinearLayout>
@@ -90,11 +92,12 @@
                             android:textSize="16sp"/>
 
                         <TextView
+                            android:id="@+id/maxCapacity"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="4dp"
                             android:fontFamily="@font/calibri"
-                            android:text="0 / 500"
+                            android:text="0"
                             android:textSize="16sp"/>
 
                     </LinearLayout>
@@ -112,6 +115,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/desc"
                 android:fontFamily="@font/calibri"
                 android:padding="16dp"
                 android:text="Lorem ipsum Hebohh anjayyyy. Student Lounge adalahh tempat evaluasi panitia maxima yang dipimpin oleh kuda laut WKWKWKWK"
@@ -119,6 +123,7 @@
                 android:textSize="16sp"/>
 
             <Button
+                android:id="@+id/btnBook"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
