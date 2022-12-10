@@ -10,13 +10,20 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/umn3"
         android:label="Yapura"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/umn3"
         android:supportsRtl="true"
         android:theme="@style/Theme.Yapura"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".DetailBarang"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".JadwalRuangan"
             android:exported="false"
@@ -50,7 +57,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".detailRuangan"
+            android:name=".DetailRuangan"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

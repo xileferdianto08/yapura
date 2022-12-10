@@ -127,4 +127,8 @@ public class RegisterPage extends AppCompatActivity{
     public void toMainAct(View view){
         startActivity(new Intent(RegisterPage.this, MainActivity.class));
     }
+
+    public void toLogin(View view){
+        startActivity(new Intent(RegisterPage.this, LoginPage.class));
+    }
 }

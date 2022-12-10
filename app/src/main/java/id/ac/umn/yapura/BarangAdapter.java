@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -21,7 +22,7 @@ import java.util.List;
 
 public class BarangAdapter extends RecyclerView.Adapter<BarangAdapter.HolderItem> {
     List<barangList> barang;
-    Context context;
+    private Context context;
 
     public BarangAdapter(List<barangList> barang, Context context) {
         this.barang = barang;
@@ -47,6 +48,20 @@ public class BarangAdapter extends RecyclerView.Adapter<BarangAdapter.HolderItem
 
         Glide.with(context).load(lBarang.getFoto()).thumbnail(0.5f).diskCacheStrategy(DiskCacheStrategy.ALL).into(holder.foto);
 
+        holder.barangCard.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, DetailBarang.class);
+                intent.putExtra("id", String.valueOf(lBarang.getId()));
+                intent.putExtra("nama", lBarang.getNama());
+                intent.putExtra("maxQty", String.valueOf(lBarang.getMaxQty()));
+                intent.putExtra("desc", lBarang.getDescription());
+                intent.putExtra("foto", lBarang.getFoto());
+                context.startActivity(intent);
+            }
+        });
+
 
     }
 
@@ -57,6 +72,7 @@ public class BarangAdapter extends RecyclerView.Adapter<BarangAdapter.HolderItem
 
     public class HolderItem extends RecyclerView.ViewHolder{
         ImageView foto;
+        RelativeLayout barangCard;
         TextView nama, maxQty;
         Button btnBook;
 
@@ -66,7 +82,7 @@ public class BarangAdapter extends RecyclerView.Adapter<BarangAdapter.HolderItem
             foto = (ImageView) v.findViewById(R.id.fotoRuangan);
             nama = (TextView) v.findViewById(R.id.namaRuangan);
             maxQty =(TextView) v.findViewById(R.id.maxQty);
-//            btnBook = (Button)  v.findViewById(R.id.btnBook);
+            barangCard = (RelativeLayout) v.findViewById(R.id.barangCard);
         }
 
     }

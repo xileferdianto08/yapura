@@ -102,6 +102,7 @@
                     android:layout_marginBottom="16dp"
                     app:cardCornerRadius="8dp"
                     app:cardElevation="4dp"
+                    app:cardBackgroundColor="@color/white"
                     app:cardUseCompatPadding="true"
                     app:contentPadding="16dp">
 
@@ -126,7 +127,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="16dp"
-                            android:textColorHint="#FFB3B3B3">
+                            android:textColorHint="#FFB3B3B3"
+                            app:boxBackgroundColor="#e0e0e0">
 
                             <EditText
                                 android:id="@+id/namalengkap"
@@ -146,7 +148,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="16dp"
-                            android:textColorHint="#FFB3B3B3">
+                            android:textColorHint="#FFB3B3B3"
+                            app:boxBackgroundColor="#e0e0e0">
 
                             <EditText
                                 android:id="@+id/emailstudent"
@@ -167,7 +170,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="16dp"
                             android:textColorHint="#FFB3B3B3"
-                            app:passwordToggleEnabled="true">
+                            app:passwordToggleEnabled="true"
+                            app:boxBackgroundColor="#e0e0e0">
 
                             <EditText
                                 android:id="@+id/password"
@@ -188,7 +192,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="16dp"
                             android:textColorHint="#FFB3B3B3"
-                            app:passwordToggleEnabled="true">
+                            app:passwordToggleEnabled="true"
+                            app:boxBackgroundColor="#e0e0e0">
 
                             <EditText
                                 android:id="@+id/confpassword"
@@ -203,7 +208,28 @@
                                 android:textColor="@android:color/black"
                                 android:textSize="16sp" />
                         </com.google.android.material.textfield.TextInputLayout>
+                        <TextView
+                            android:id="@+id/textView3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Already have account?"
+                            android:textColor="@color/black"
+                            android:layout_below="@+id/btnLogin"
+                            android:layout_marginTop="30dp"
+                            android:textAlignment="center"
+                            android:gravity="center_horizontal" />
 
+                        <TextView
+                            android:id="@+id/signUp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:onClick="toLogin"
+                            android:text="Login here"
+                            android:textColor="@color/black"
+                            android:layout_below="@id/textView3"
+                            android:textAlignment="center"
+                            android:layout_marginBottom="-2dp"
+                            android:gravity="center_horizontal" />
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>

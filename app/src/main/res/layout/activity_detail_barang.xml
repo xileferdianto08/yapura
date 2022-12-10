@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailRuangan"
+    tools:context=".DetailBarang"
     android:background="@color/white">
 
     <ScrollView
@@ -22,7 +22,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:scaleType="fitEnd"
+                    android:scaleType="fitCenter"
                     android:id="@+id/foto"
                     android:src="@drawable/lecture_hall"/>
                 <ImageView
@@ -53,7 +53,7 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/namaRuangan"
+                            android:id="@+id/namaBarang"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="4dp"
@@ -63,14 +63,6 @@
                             android:textSize="24dp"
                             android:textStyle="bold" />
 
-<!--                        <TextView-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:fontFamily="@font/calibri"-->
-<!--                            android:text="Lobby D"-->
-<!--                            android:textSize="16sp"-->
-<!--                            android:textColor="@color/green"-->
-<!--                            android:textStyle="bold" />-->
 
                     </LinearLayout>
                 </LinearLayout>
@@ -92,18 +84,19 @@
                             android:layout_marginBottom="4dp"
                             android:fontFamily="@font/calibri"
                             android:textColor="@color/black"
-                            android:text="Max Kapasitas:"
+                            android:layout_marginLeft="70dp"
+                            android:text="Jumlah barang yang tersedia:"
                             android:textSize="16sp"/>
 
                         <TextView
-                            android:id="@+id/maxCapacity"
+                            android:id="@+id/maxQty"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="4dp"
                             android:fontFamily="@font/calibri"
-                            android:textColor="@color/black"
                             android:text="0"
-                            android:textSize="16sp"/>
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
 
                     </LinearLayout>
                 </LinearLayout>

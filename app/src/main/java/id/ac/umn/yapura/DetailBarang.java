@@ -1,5 +1,6 @@
 package id.ac.umn.yapura;
 
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -13,48 +14,44 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
-public class DetailRuangan extends AppCompatActivity {
-    int ruangId, userId;
-    private TextView nama,maxCapacity, desc;
+public class DetailBarang extends AppCompatActivity {
+    int barangId, userId;
+    private TextView nama,maxQty, desc;
     private Button btnBook;
-    private ImageView fotoRuangan;
+    private ImageView fotoBarang;
 
 //    SharedPreferences sessions = getSharedPreferences("user_data", Context.MODE_PRIVATE);
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_ruangan);
+        setContentView(R.layout.activity_detail_barang);
 
-        nama = (TextView) findViewById(R.id.namaRuangan);
-        maxCapacity = (TextView) findViewById(R.id.maxCapacity);
+        nama = (TextView) findViewById(R.id.namaBarang);
+        maxQty = (TextView) findViewById(R.id.maxQty);
         desc = (TextView) findViewById(R.id.desc);
-        fotoRuangan = (ImageView) findViewById(R.id.foto);
+        fotoBarang = (ImageView) findViewById(R.id.foto);
         btnBook = (Button) findViewById(R.id.btnBook);
 
         try {
             Intent intent = getIntent();
 
-            String namaRuangan = intent.getStringExtra("nama");
-            String maxcapacity = intent.getStringExtra("maxCapacity");
-            String descRuangan = intent.getStringExtra("desc");
+            String namaBarang = intent.getStringExtra("nama");
+            String maxqty = intent.getStringExtra("maxQty");
+            String descBarang = intent.getStringExtra("desc");
             String foto = intent.getStringExtra("foto");
             String id = intent.getStringExtra("id");
-            ruangId = Integer.parseInt(intent.getStringExtra("id"));
+            barangId = Integer.parseInt(intent.getStringExtra("id"));
 //            userId = sessions.getInt("userId", 98);
 
-            Glide.with(this).load(foto).into(fotoRuangan);
-            nama.setText(namaRuangan);
-            maxCapacity.setText(maxcapacity);
-            desc.setText(descRuangan);
+            Glide.with(this).load(foto).into(fotoBarang);
+            nama.setText(namaBarang);
+            maxQty.setText(maxqty);
+            desc.setText(descBarang);
         }catch (NumberFormatException ex){
             ex.printStackTrace();
         }
     }
     public void backToMenu(View view){
-        startActivity(new Intent(DetailRuangan.this, RuanganActivity.class));
+        startActivity(new Intent(DetailBarang.this, RuanganActivity.class));
     }
-
-
 }
