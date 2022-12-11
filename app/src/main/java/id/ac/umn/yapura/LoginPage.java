@@ -101,7 +101,7 @@ public class LoginPage extends AppCompatActivity {
                                     editor.putInt("userId", userId);
                                     editor.apply();
 
-                                    Intent intent = new Intent(LoginPage.this, PeminjamanPage.class);
+                                    Intent intent = new Intent(LoginPage.this, Popup.class);
                                     startActivity(intent);
 
                                     String name = sessions.getString("nama", "ga masuk");
