@@ -1,25 +1,20 @@
 package id.ac.umn.yapura;
 
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Dialog;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.bumptech.glide.Glide;
 
-public class DetailBarang extends AppCompatActivity {
+public class DetailBarangAdm extends AppCompatActivity {
     int barangId, userId;
     private TextView nama,maxQty, desc;
     private Button btnBook;
@@ -29,7 +24,7 @@ public class DetailBarang extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_barang);
+        setContentView(R.layout.activity_detail_barang_adm);
         String namaBarang;
 
         nama = (TextView) findViewById(R.id.namaBarang);
@@ -59,7 +54,7 @@ public class DetailBarang extends AppCompatActivity {
     }
 
     public void bookingRuangan(View view){
-        final Dialog dialog1 = new Dialog(DetailBarang.this);
+        final Dialog dialog1 = new Dialog(DetailBarangAdm.this);
         dialog1.setContentView(R.layout.book_ruangan);
         TextView namaBrng = (TextView) dialog1.findViewById(R.id.namaBarang);
         EditText startDate = (EditText) dialog1.findViewById(R.id.startDate);
@@ -74,6 +69,6 @@ public class DetailBarang extends AppCompatActivity {
     }
 
     public void backToMenu(View view){
-        startActivity(new Intent(DetailBarang.this, RuanganActivity.class));
+        startActivity(new Intent(DetailBarangAdm.this, RuanganActivity.class));
     }
 }

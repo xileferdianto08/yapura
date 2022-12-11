@@ -25,11 +25,11 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class RegisterPage extends AppCompatActivity{
+public class RegisterAdmin extends AppCompatActivity{
     EditText email, password, confPassword, namalengkap;
     Button btnRegister;
 
-    private static String URL_REGISTER = "https://yapuraapi.000webhostapp.com/yapura_api/users/regist_user.php";
+    private static String URL_REGISTER = "https://yapuraapi.000webhostapp.com/yapura_api/admin/regist_admin.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +58,7 @@ public class RegisterPage extends AppCompatActivity{
                 namalengkap.setError("Nama Lengkap tidak boleh kosong");
             }else {
                 if(!passwordKey.equals(confPwdKey)){
-                    Toast.makeText(RegisterPage.this, "Password tidak sama!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterAdmin.this, "Password tidak sama!", Toast.LENGTH_SHORT).show();
                 }else {
                     Register(emailKey, passwordKey, namaLengkapKey);
                 }
@@ -83,16 +83,16 @@ public class RegisterPage extends AppCompatActivity{
 
                                 if(status.equals("OK")){
 
-                                    Intent intent = new Intent(RegisterPage.this, AdminPage.class);
+                                    Intent intent = new Intent(RegisterAdmin.this, AdminPage.class);
                                     startActivity(intent);
 
-                                    Toast.makeText(RegisterPage.this, "Registrasi berhasil, silahkan login", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(RegisterAdmin.this, "Registrasi berhasil, silahkan login", Toast.LENGTH_SHORT).show();
                                 }else if (status.equals("USER_ALREADY_EXIST")){
-                                    Toast.makeText(RegisterPage.this, "Email atau Password salah", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(RegisterAdmin.this, "Email atau Password salah", Toast.LENGTH_LONG).show();
                                 }else if (status.equals("EMAIL_INCORRECT_FORMAT")){
-                                    Toast.makeText(RegisterPage.this, "Mohon untuk menggunakan email student atau staf UMN!", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(RegisterAdmin.this, "Mohon untuk menggunakan email student UMN!", Toast.LENGTH_LONG).show();
                                 }else if(status.equals("FAILED") || status.equals("DB FAILED")){
-                                    Toast.makeText(RegisterPage.this, "Terdapat kesalahan pada server", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(RegisterAdmin.this, "Terdapat kesalahan pada server", Toast.LENGTH_LONG).show();
                                 }
                             }
 
@@ -104,7 +104,7 @@ public class RegisterPage extends AppCompatActivity{
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(RegisterPage.this, "Error "+error.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(RegisterAdmin.this, "Error "+error.toString(), Toast.LENGTH_SHORT).show();
             }
         }){
             @Nullable
@@ -124,10 +124,10 @@ public class RegisterPage extends AppCompatActivity{
     }
 
     public void toMainAct(View view){
-        startActivity(new Intent(RegisterPage.this, MainActivity.class));
+        startActivity(new Intent(RegisterAdmin.this, MainActivity.class));
     }
 
     public void toLogin(View view){
-        startActivity(new Intent(RegisterPage.this, AdminPage.class));
+        startActivity(new Intent(RegisterAdmin.this, AdminLogin.class));
     }
 }

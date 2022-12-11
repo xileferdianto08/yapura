@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginEnd="9dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_margin="20dp"
+            android:id="@+id/ruanganCard"
+            android:background="@drawable/backgroud1">
+
+            <TextView
+                android:id="@+id/namaRuangan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-5dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/calibri"
+                android:padding="25dp"
+                android:text="Kelas"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-30dp"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/calibri"
+                android:padding="50dp"
+                android:text="Capacity: "
+                android:textAlignment="viewStart"
+                android:textColor="@color/gray"
+                android:textSize="18dp" />
+
+
+            <TextView
+                android:id="@+id/maxCapacity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/calibri"
+                android:padding="50dp"
+                android:text="500"
+                android:textAlignment="viewStart"
+                android:textColor="@color/gray"
+                android:textSize="18dp" />
+
+
+            <ImageView
+                android:id="@+id/fotoRuangan"
+                android:layout_width="90dp"
+                android:layout_height="77dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="14dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/logoumn" />
+
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="47dp"
+                android:id="@+id/btnUpdate"
+                android:src="@drawable/ic_baseline_edit_note_24"
+                android:layout_marginTop="100dp"
+                android:layout_marginLeft="200dp"/>
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="47dp"
+                android:id="@id/btnDel"
+                android:src="@drawable/ic_baseline_clear_24"
+                android:layout_marginTop="100dp"
+                android:layout_marginLeft="260dp"/>
+
+            <!--            <Button-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_alignParentBottom="true"-->
+            <!--                android:background="#00000000"-->
+            <!--                android:padding="20dp"-->
+            <!--                android:id="@+id/btnBook"-->
+            <!--                android:text="@string/book"-->
+            <!--                android:textColor="@color/lightWhite" />-->
+        </RelativeLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

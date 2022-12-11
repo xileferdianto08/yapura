@@ -21,4 +21,9 @@ public class MainActivity extends AppCompatActivity {
     public void toRegister(View view){
         startActivity(new Intent(MainActivity.this, RegisterPage.class));
     }
+    public void toAdminLogin(View view){
+        startActivity(new Intent(MainActivity.this, AdminLogin.class));
+
+    }
+
 }

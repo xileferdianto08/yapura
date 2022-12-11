@@ -1,8 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="350dp"
-    android:layout_height="530dp"
-    android:layout_gravity="center">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="50dp"
+    android:paddingRight="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Book"
+            android:textAlignment="center"
+            android:textSize="14pt"
+           />
+
+
+        <TextView
+            android:id="@+id/namaBarang"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="titid"
+            android:textAlignment="center"
+            android:textSize="14pt"
+            android:layout_marginBottom="30dp"/>
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -71,4 +97,4 @@
             android:text="Book"/>
     </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>

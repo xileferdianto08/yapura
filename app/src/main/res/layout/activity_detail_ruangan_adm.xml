@@ -5,38 +5,35 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailBarang"
+    tools:context=".DetailRuanganAdm"
     android:background="@color/white">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="360dp">
 
                 <ImageView
-                    android:id="@+id/foto"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/lecture_hall" />
-
+                    android:scaleType="fitEnd"
+                    android:id="@+id/foto"
+                    android:src="@drawable/lecture_hall"/>
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
+                    android:onClick="backToMenu"
                     android:layout_alignParentTop="true"
                     android:layout_marginTop="16dp"
-                    android:onClick="backToMenu"
                     android:padding="8dp"
-                    android:src="@drawable/ic_keyboard_arrow_left_white_24dp" />
+                    android:src="@drawable/ic_keyboard_arrow_left_white_24dp"/>
 
             </RelativeLayout>
 
@@ -46,19 +43,17 @@
                 android:orientation="horizontal"
                 android:padding="16dp"
                 android:weightSum="100">
-
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="50">
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/namaBarang"
+                            android:id="@+id/namaRuangan"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="4dp"
@@ -68,6 +63,14 @@
                             android:textSize="24dp"
                             android:textStyle="bold" />
 
+                        <!--                        <TextView-->
+                        <!--                            android:layout_width="wrap_content"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:fontFamily="@font/calibri"-->
+                        <!--                            android:text="Lobby D"-->
+                        <!--                            android:textSize="16sp"-->
+                        <!--                            android:textColor="@color/green"-->
+                        <!--                            android:textStyle="bold" />-->
 
                     </LinearLayout>
                 </LinearLayout>
@@ -86,22 +89,21 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="70dp"
                             android:layout_marginBottom="4dp"
                             android:fontFamily="@font/calibri"
-                            android:text="Jumlah barang yang tersedia:"
                             android:textColor="@color/black"
-                            android:textSize="16sp" />
+                            android:text="Max Kapasitas:"
+                            android:textSize="16sp"/>
 
                         <TextView
-                            android:id="@+id/maxQty"
+                            android:id="@+id/maxCapacity"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="4dp"
                             android:fontFamily="@font/calibri"
-                            android:text="0"
                             android:textColor="@color/black"
-                            android:textSize="16sp" />
+                            android:text="0"
+                            android:textSize="16sp"/>
 
                     </LinearLayout>
                 </LinearLayout>
@@ -113,36 +115,39 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
-                android:background="@color/lightWhite" />
+                android:background="@color/lightWhite"/>
 
             <TextView
-                android:id="@+id/desc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/desc"
                 android:fontFamily="@font/calibri"
                 android:padding="16dp"
                 android:text="Lorem ipsum Hebohh anjayyyy. Student Lounge adalahh tempat evaluasi panitia maxima yang dipimpin oleh kuda laut WKWKWKWK"
                 android:textColor="@color/black"
-                android:textSize="16sp" />
-
-            <Button
-                android:id="@+id/btnBook"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="16dp"
-                android:background="@drawable/buttonshape"
-                android:fontFamily="@font/calibri"
-                android:onClick="bookingRuangan"
-                android:text="Book Now"
-                android:textAllCaps="false"
-                android:textColor="@color/lightWhite"
-
-                android:textSize="24sp" />
+                android:textSize="16sp"
+                android:layout_marginBottom="80dp"/>
 
 
         </LinearLayout>
     </ScrollView>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1500dp">
+        <Button
+            android:id="@+id/btnBook"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="16dp"
+            android:background="@drawable/buttonshape"
+            android:fontFamily="@font/calibri"
+            android:text="Book Now"
+            android:textAllCaps="false"
+            android:textColor="@color/lightWhite"
+            android:layout_marginTop="500dp"
+            android:textSize="24sp"/>
+    </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
