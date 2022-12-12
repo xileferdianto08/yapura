@@ -55,23 +55,18 @@ public class DetailBarang extends AppCompatActivity {
         maxQty.setText(maxqty);
         desc.setText(descBarang);
 
+        btnBook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent newIntent = new Intent(DetailBarang.this, BookBarang.class);
+                newIntent.putExtra("namaBarang", namaBarang);
+                newIntent.putExtra("barangId", String.valueOf(barangId));
+                startActivity(newIntent);
+            }
+        });
 
     }
 
-    public void bookingRuangan(View view){
-        final Dialog dialog1 = new Dialog(DetailBarang.this);
-        dialog1.setContentView(R.layout.book_ruangan);
-        TextView namaBrng = (TextView) dialog1.findViewById(R.id.namaBarang);
-        EditText startDate = (EditText) dialog1.findViewById(R.id.startDate);
-        EditText startTime = (EditText) dialog1.findViewById(R.id.startTime);
-        EditText endDate = (EditText) dialog1.findViewById(R.id.endDate);
-        EditText endTime = (EditText) dialog1.findViewById(R.id.endTime);
-        EditText capacity = (EditText) dialog1.findViewById(R.id.capacity);
-        EditText necessity = (EditText) dialog1.findViewById(R.id.necessity);
-
-        dialog1.show();
-
-    }
 
     public void backToMenu(View view){
         startActivity(new Intent(DetailBarang.this, RuanganActivity.class));

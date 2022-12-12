@@ -1,151 +1,186 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="350dp"
-    android:layout_height="570dp"
+    android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_gravity="center"
     tools:context=".Popup">
 
-        <LinearLayout
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="vertical">-->
+<!--        <TextView-->
+<!--            android:id="@+id/namaBarang"-->
+<!--            android:layout_width="fill_parent"-->
+<!--            android:layout_height="fill_parent"-->
+<!--            android:layout_marginBottom="30dp"-->
+<!--            android:text="Ruangan"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textSize="14pt" />-->
+
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:text="Booking"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textSize="14pt"-->
+<!--            />-->
+<!--    </LinearLayout>-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Start Date"
-                android:textSize="24sp"/>
-<!--            <Button-->
-<!--                android:id="@+id/btnStartDate"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:layout_marginLeft="80dp"-->
-<!--                android:layout_gravity="center"-->
-<!--                android:text="Input Date"-->
-<!--                android:onClick="openDatePicker"/>-->
+            android:text="Booking"
+            android:textAlignment="center"
+            android:textSize="14pt"
+            />
+        <TextView
+            android:id="@+id/namaBarang"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="30dp"
+            android:text="Ruangan"
+            android:textAlignment="center"
+            android:textSize="14pt" />
 
-            <Button
-                android:id="@+id/btnStartDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="5dp"
-                android:textColor="#000000"
-                android:textSize="22dp"
-                android:textStyle="bold"
-                style="?android:spinnerStyle"
-                android:hint="MM-DD-YY"
-                android:onClick="openDatePicker"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Start Time"
-                android:textSize="24sp"/>
-            <Button
-                android:id="@+id/btnStartTime"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="80dp"
-                android:layout_gravity="center"
-                android:text="Input Time"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="-40dp"
-                android:layout_marginRight="60dp"
-                style="?android:spinnerStyle"
-                android:layout_gravity="center"
-                android:id="@+id/startTime2"
-                android:textColor="#000000"
-                android:textSize="22sp"
-                android:textStyle="bold"
-                android:hint="00:00"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="End Date"
-                android:textSize="24sp"/>
-<!--            <Button-->
-<!--                android:id="@+id/btnEndDate"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:layout_marginLeft="80dp"-->
-<!--                android:layout_gravity="center"-->
-<!--                android:text="Input Date"/>-->
-            <Button
-                android:id="@+id/btnEndDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="5dp"
-                android:textColor="#000000"
-                android:textSize="22dp"
-                android:textStyle="bold"
-                style="?android:spinnerStyle"
-                android:hint="MM-DD-YY"
-                android:onClick="openDatePicker"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="End Time"
-                android:textSize="24sp"/>
-            <Button
-                android:id="@+id/btnEndTime"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="80dp"
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center"
-                android:text="Input Time"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="-40dp"
-                android:layout_marginRight="60dp"
-                style="?android:spinnerStyle"
-                android:layout_gravity="center"
-                android:hint="00:00"
-                android:id="@+id/EndTime2"
-                android:textColor="#000000"
-                android:textSize="22sp"
-                android:textStyle="bold"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Capacity"
-                android:textSize="24sp"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:hint="Input Capacity"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Necessity"
-                android:textSize="24sp"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:hint="Input Necessity"/>
-            <Button
-                android:id="@+id/bookModal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:text="Book"/>
-        </LinearLayout>
 
-</RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Start Date"
+            android:textSize="24sp" />
+
+
+        <Button
+            android:id="@+id/btnStartDate"
+            style="?android:spinnerStyle"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:hint="MM-DD-YY"
+            android:onClick="openDatePicker"
+            android:textColor="#000000"
+            android:textSize="22dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Start Time"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/startTime2"
+            style="?android:spinnerStyle"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="9dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:hint="00:00"
+            android:textColor="#000000"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="End Date"
+            android:textSize="24sp" />
+        <!--            <Button-->
+        <!--                android:id="@+id/btnEndDate"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_marginTop="10dp"-->
+        <!--                android:layout_marginLeft="80dp"-->
+        <!--                android:layout_gravity="center"-->
+        <!--                android:text="Input Date"/>-->
+        <Button
+            android:id="@+id/btnEndDate"
+            style="?android:spinnerStyle"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:hint="MM-DD-YY"
+            android:onClick="openDatePicker2"
+            android:textColor="#000000"
+            android:textSize="22dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="End Time"
+            android:textSize="24sp" />
+        <!---->
+        <TextView
+            android:id="@+id/EndTime2"
+            style="?android:spinnerStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="9dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:hint="00:00"
+            android:textColor="#000000"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Capacity"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/capacity"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="90dp"
+            android:gravity="center"
+            android:hint="Input Capacity" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Necessity"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/necessity"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="90dp"
+            android:gravity="center"
+            android:hint="Input Necessity" />
+
+        <Button
+            android:id="@+id/btnBook"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+
+            android:text="Book" />
+    </LinearLayout>
+
+</ScrollView>
