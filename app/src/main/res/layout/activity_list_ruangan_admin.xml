@@ -87,6 +87,7 @@
 
             </LinearLayout>
 
+
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -107,6 +108,23 @@
                     android:background="@color/colorPrimaryDark" />
 
             </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="320dp"
+            android:elevation="5dp"
+            android:layout_marginBottom="70dp"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            android:weightSum="100">
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/addBarang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                app:srcCompat="@drawable/ic_baseline_add_24" />
         </LinearLayout>
     </RelativeLayout>
 
