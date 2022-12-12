@@ -33,24 +33,31 @@ public class DetailRuangan extends AppCompatActivity {
         fotoRuangan = (ImageView) findViewById(R.id.foto);
         btnBook = (Button) findViewById(R.id.btnBook);
 
-        try {
-            Intent intent = getIntent();
+        Intent intent = getIntent();
 
-            String namaRuangan = intent.getStringExtra("nama");
-            String maxcapacity = intent.getStringExtra("maxCapacity");
-            String descRuangan = intent.getStringExtra("desc");
-            String foto = intent.getStringExtra("foto");
-            String id = intent.getStringExtra("id");
-            ruangId = Integer.parseInt(intent.getStringExtra("id"));
+        String namaRuangan = intent.getStringExtra("nama");
+        String maxcapacity = intent.getStringExtra("maxCapacity");
+        String descRuangan = intent.getStringExtra("desc");
+        String foto = intent.getStringExtra("foto");
+        String id = intent.getStringExtra("id");
+        ruangId = Integer.parseInt(intent.getStringExtra("id"));
 //            userId = sessions.getInt("userId", 98);
 
-            Glide.with(this).load(foto).into(fotoRuangan);
-            nama.setText(namaRuangan);
-            maxCapacity.setText(maxcapacity);
-            desc.setText(descRuangan);
-        }catch (NumberFormatException ex){
-            ex.printStackTrace();
-        }
+        Glide.with(this).load(foto).into(fotoRuangan);
+        nama.setText(namaRuangan);
+        maxCapacity.setText(maxcapacity);
+        desc.setText(descRuangan);
+
+        btnBook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent newIntent = new Intent(DetailRuangan.this, BookRuangan.class);
+                newIntent.putExtra("namaRuangan", namaRuangan);
+                newIntent.putExtra("ruangId", String.valueOf(ruangId));
+                startActivity(newIntent);
+            }
+        });
+
     }
     public void backToMenu(View view){
         startActivity(new Intent(DetailRuangan.this, RuanganActivity.class));

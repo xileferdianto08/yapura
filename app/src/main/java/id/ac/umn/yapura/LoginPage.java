@@ -98,7 +98,7 @@ public class LoginPage extends AppCompatActivity {
 
                                     editor.putString("nama", nama);
                                     editor.putString("email", email);
-                                    editor.putInt("userId", userId);
+                                    editor.putString("userId", String.valueOf(userId));
                                     editor.apply();
 
                                     Intent intent = new Intent(LoginPage.this, PeminjamanPage.class);
