@@ -22,7 +22,6 @@
             android:padding="8dp"
             android:weightSum="100">
 
-
             <LinearLayout
                 android:id="@+id/home_linear_layout"
                 android:layout_width="0dp"
@@ -47,11 +46,11 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="50"
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="30"
                 android:orientation="vertical">
 
                 <ImageView
@@ -70,6 +69,30 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/logout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="20"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_baseline_logout_24" />
+
+                <View
+                    android:layout_width="84dp"
+                    android:layout_height="2dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/colorPrimaryDark"
+                    android:visibility="invisible"/>
+
+            </LinearLayout>
+
+
         </LinearLayout>
 
     </RelativeLayout>
@@ -87,7 +110,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="200dp">
+                android:layout_height="150dp">
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -115,7 +138,7 @@
                 android:layout_marginRight="16dp"
                 android:fontFamily="@font/calibri"
                 android:text="Silahkan Pilih"
-                android:textSize="14sp" />
+                android:textSize="20sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -217,7 +240,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="150dp"
                     android:layout_marginEnd="8dp"
                     android:layout_weight="50"
                     android:onClick="toJadwalBarang"
@@ -248,19 +271,19 @@
                             android:fontFamily="@font/calibri"
                             android:text="Jadwal Ketersediaan Alat"
                             android:textColor="#3C3C3C"
-                            android:textSize="16sp" />
+                            android:textSize="14sp" />
 
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/jadwalRuangan"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="150dp"
                     android:layout_marginStart="8dp"
                     android:layout_weight="50"
                     android:onClick="toJadwalRuangan"
-                    android:id="@+id/jadwalRuangan"
                     app:cardBackgroundColor="#a4bdff"
                     app:cardCornerRadius="8dp"
                     app:cardElevation="4dp"
@@ -287,7 +310,7 @@
                             android:fontFamily="@font/calibri"
                             android:text="Jadwal Ketersediaan Ruangan"
                             android:textColor="#3C3C3C"
-                            android:textSize="16sp" />
+                            android:textSize="14sp" />
 
                     </LinearLayout>
 
