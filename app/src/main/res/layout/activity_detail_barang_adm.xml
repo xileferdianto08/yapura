@@ -126,18 +126,38 @@
                 android:textSize="16sp" />
 
             <Button
-                android:id="@+id/btnBook"
-                android:layout_width="match_parent"
+                android:id="@+id/btnEdit"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_margin="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="90dp"
                 android:background="@drawable/buttonshape"
                 android:fontFamily="@font/calibri"
                 android:onClick="bookingRuangan"
-                android:text="Book Now"
+                android:text="Edit"
                 android:textAllCaps="false"
                 android:textColor="@color/lightWhite"
 
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/btnDel"
+
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="-50dp"
+                android:layout_marginRight="-90dp"
+                android:background="@drawable/buttonshape"
+                android:backgroundTint="@color/red"
+                android:fontFamily="@font/calibri"
+                android:onClick="bookingRuangan"
+                android:text="Delete"
+                android:textAllCaps="false"
+
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+                android:textColor="@color/lightWhite"
                 android:textSize="24sp" />
 
 
