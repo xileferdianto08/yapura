@@ -36,7 +36,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/lightWhite"
-        android:hint="Max Capacity"
+        android:hint="Max Quantity"
         android:inputType="number"
         android:padding="10dp"
         android:layout_marginLeft="20dp"
