@@ -27,6 +27,13 @@
                 android:value=""/>
         </activity>
         <activity
+            android:name=".StatusRuanganUSer"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".ListPeminjamanBarang"
             android:exported="false">
             <meta-data
@@ -35,13 +42,6 @@
         </activity>
         <activity
             android:name=".ListPeminjamanRuangan"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".Popup"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -134,7 +134,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".History"
+            android:name=".StatusBarangUser"
             android:exported="false"
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar">
             <meta-data
@@ -189,9 +189,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar">
-            >
-        </activity>
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"></activity>
         <activity
             android:name=".PeminjamanPage"
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />

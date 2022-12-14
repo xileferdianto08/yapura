@@ -51,6 +51,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="30"
+                android:id="@+id/btnStatus"
                 android:orientation="vertical">
 
                 <ImageView
@@ -74,6 +75,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="20"
+                android:onClick="toLogout"
                 android:orientation="vertical">
 
                 <ImageView
@@ -125,9 +127,19 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:layout_marginBottom="4dp"
                 android:fontFamily="@font/calibri"
-                android:text="Yapura"
+                android:text="Halo, "
+                android:textColor="#000000"
+                android:textSize="26sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/namaUser"
+                android:layout_marginLeft="80dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginTop="-30dp"
+                android:fontFamily="@font/calibri"
+                android:text="User "
                 android:textColor="#000000"
                 android:textSize="26sp" />
 
@@ -304,11 +316,12 @@
                             android:src="@drawable/ic_ketersediaan_ruangan" />
 
                         <TextView
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="16dp"
+                            android:layout_marginTop="1dp"
                             android:fontFamily="@font/calibri"
                             android:text="Jadwal Ketersediaan Ruangan"
+
                             android:textColor="#3C3C3C"
                             android:textSize="14sp" />
 

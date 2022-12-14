@@ -72,6 +72,7 @@ public class BookRuangan extends AppCompatActivity {
         String namaRuangan = intent.getStringExtra("namaRuangan");
         ruanganID = Integer.parseInt(intent.getStringExtra("ruangId"));
 
+        namaRuang.setText(namaRuangan);
 
 
         Calendar calendar = Calendar.getInstance();

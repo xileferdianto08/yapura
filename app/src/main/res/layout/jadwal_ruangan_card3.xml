@@ -17,14 +17,14 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <RelativeLayout
-            android:id="@+id/barangCard"
+            android:id="@+id/ruanganCard"
             android:layout_width="match_parent"
             android:layout_height="210dp"
             android:layout_margin="10dp"
             android:background="@drawable/backgroud1">
 
             <TextView
-                android:id="@+id/namaBarang"
+                android:id="@+id/namaRuangan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="-5dp"
@@ -42,14 +42,14 @@
                 android:layout_marginTop="18dp"
                 android:fontFamily="@font/calibri"
                 android:padding="50dp"
-                android:text="Quantity: "
+                android:text="Capacity: "
                 android:textAlignment="viewStart"
                 android:textColor="@color/lightWhite"
                 android:textSize="18dp" />
 
 
             <TextView
-                android:id="@+id/qty"
+                android:id="@+id/capacity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"
@@ -178,37 +178,15 @@
                 android:textColor="@color/white"
                 android:textSize="18sp" />
 
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="-4dp"
-                android:layout_marginTop="135dp"
-                android:fontFamily="@font/calibri"
-                android:padding="25dp"
-                android:text="Borrower:"
-                android:textColor="@color/white"
-                android:textSize="18sp" />
-            <TextView
-                android:id="@+id/namaUser"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="70dp"
-                android:layout_marginTop="135dp"
-                android:fontFamily="@font/calibri"
-                android:padding="25dp"
-                android:text="Kelasss"
-                android:textColor="@color/white"
-                android:textSize="18sp" />
 
             <TextView
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="160dp"
+                android:layout_marginLeft="-5dp"
                 android:layout_marginTop="133dp"
                 android:fontFamily="@font/calibri"
-                android:padding="25dp"
+                android:padding="26dp"
                 android:text="Status: "
                 android:textColor="@color/white"
                 android:textSize="18sp" />
@@ -217,8 +195,8 @@
                 android:id="@+id/status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="220dp"
-                android:layout_marginTop="133dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="139dp"
                 android:fontFamily="@font/calibri"
                 android:padding="20dp"
                 android:textAlignment="center"
@@ -227,8 +205,10 @@
                 android:textSize="18sp" />
 
 
+
+
             <ImageView
-                android:id="@+id/fotoBarang"
+                android:id="@+id/fotoRuangan"
                 android:layout_width="125dp"
                 android:layout_height="125dp"
                 android:layout_alignParentRight="true"
