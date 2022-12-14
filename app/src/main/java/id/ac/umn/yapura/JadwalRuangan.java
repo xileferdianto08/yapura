@@ -32,7 +32,7 @@ public class JadwalRuangan extends AppCompatActivity {
     List<jadwalRuanganList> jadwalRuangan;
 
 
-    private final String URL_JADWAL_RUANGAN = "https://yapuraapi.000webhostapp.com/yapura_api/barang/list_borrowed_barang.php";
+    private final String URL_JADWAL_RUANGAN = "https://yapuraapi.000webhostapp.com/yapura_api/ruangan/list_borrowed_ruangan.php";
 
 
     @Override
@@ -70,14 +70,12 @@ public class JadwalRuangan extends AppCompatActivity {
                             JSONObject obj = arr.getJSONObject(0);
 
                             JSONArray getArr = obj.getJSONArray("data_peminjaman_r");
-                            if(getArr.length() < 1){
-                                Toast.makeText(JadwalRuangan.this, "Data belum ada", Toast.LENGTH_SHORT).show();
-                            }else {
+
                                 for (i = 0; i < getArr.length(); i++) {
                                     JSONObject resp = getArr.getJSONObject(i);
                                     jadwalRuanganList newData = new jadwalRuanganList();
-                                    newData.setNamaBarang(resp.getString("namaBarang"));
-                                    newData.setCapacity(resp.getInt("qty"));
+                                    newData.setNamaRuangan(resp.getString("namaRuangan"));
+                                    newData.setCapacity(resp.getInt("capacity"));
                                     newData.setStartDate(resp.getString("startDate"));
                                     newData.setEndDate(resp.getString("endDate"));
                                     newData.setStartTime(resp.getString("startTime"));
@@ -89,7 +87,7 @@ public class JadwalRuangan extends AppCompatActivity {
                                     jadwalRuangan.add(newData);
                                 }
 
-                            }
+
 
 
                         } catch (JSONException e){

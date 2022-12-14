@@ -32,6 +32,13 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".Popup"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".DetailRuanganAdm"
             android:exported="false">
             <meta-data
@@ -82,6 +89,20 @@
         </activity>
         <activity
             android:name=".DetailBarang"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".BookRuangan"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".BookBarang"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

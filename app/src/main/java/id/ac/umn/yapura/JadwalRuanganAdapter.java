@@ -37,18 +37,18 @@ public class JadwalRuanganAdapter extends RecyclerView.Adapter<JadwalRuanganAdap
 
     @Override
     public void onBindViewHolder(@NonNull HolderItem holder, int position) {
-        jadwalRuanganList lAlat = jRuangan.get(position);
+        jadwalRuanganList lRuangan = jRuangan.get(position);
 
-        holder.namaBarang.setText(lAlat.getNamaBarang());
-        holder.capacity.setText(String.valueOf(lAlat.getCapacity()));
-        holder.startDate.setText(lAlat.getStartDate());
-        holder.startTime.setText(lAlat.getStartTime());
-        holder.endDate.setText(lAlat.getEndDate());
-        holder.endTime.setText(lAlat.getEndTime());
-        holder.necessity.setText(lAlat.getNecessity());
+        holder.namaRuangan.setText(lRuangan.getNamaRuangan());
+        holder.capacity.setText(String.valueOf(lRuangan.getCapacity()));
+        holder.startDate.setText(lRuangan.getStartDate());
+        holder.startTime.setText(lRuangan.getStartTime());
+        holder.endDate.setText(lRuangan.getEndDate());
+        holder.endTime.setText(lRuangan.getEndTime());
+        holder.necessity.setText(lRuangan.getNecessity());
 
 
-        Glide.with(context).load(lAlat.getFoto()).thumbnail(0.5f).diskCacheStrategy(DiskCacheStrategy.ALL).into(holder.foto);
+        Glide.with(context).load(lRuangan.getFoto()).thumbnail(0.5f).diskCacheStrategy(DiskCacheStrategy.ALL).into(holder.foto);
 
 
     }
@@ -60,14 +60,14 @@ public class JadwalRuanganAdapter extends RecyclerView.Adapter<JadwalRuanganAdap
 
     public class HolderItem extends RecyclerView.ViewHolder{
         ImageView foto;
-        TextView namaBarang, capacity, startDate, startTime, endDate, endTime, necessity;
+        TextView namaRuangan, capacity, startDate, startTime, endDate, endTime, necessity;
         Button btnBook;
 
         public HolderItem(View v){
             super(v);
 
-            foto = (ImageView) v.findViewById(R.id.fotoBarang);
-            namaBarang = (TextView) v.findViewById(R.id.namaBarang);
+            foto = (ImageView) v.findViewById(R.id.fotoRuangan);
+            namaRuangan = (TextView) v.findViewById(R.id.namaRuangan);
             capacity = (TextView) v.findViewById(R.id.capacity);
             startDate = (TextView) v.findViewById(R.id.startDate);
             startTime = (TextView) v.findViewById(R.id.startTime);

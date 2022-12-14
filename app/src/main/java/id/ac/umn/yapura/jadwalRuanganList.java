@@ -2,14 +2,14 @@ package id.ac.umn.yapura;
 
 public class jadwalRuanganList {
     int capacity;
-    String namaBarang, startDate, startTime, endDate, endTime, necessity, status, foto;
+    String namaRuangan, startDate, startTime, endDate, endTime, necessity, status, foto;
 
     public jadwalRuanganList() {
     }
 
-    public jadwalRuanganList(int capacity, String namaBarang, String startDate, String startTime, String endDate, String endTime, String necessity, String status, String foto) {
+    public jadwalRuanganList(int capacity, String namaRuangan, String startDate, String startTime, String endDate, String endTime, String necessity, String status, String foto) {
         this.capacity = capacity;
-        this.namaBarang = namaBarang;
+        this.namaRuangan = namaRuangan;
         this.startDate = startDate;
         this.startTime = startTime;
         this.endDate = endDate;
@@ -37,12 +37,12 @@ public class jadwalRuanganList {
         this.capacity = capacity;
     }
 
-    public String getNamaBarang() {
-        return namaBarang;
+    public String getNamaRuangan() {
+        return namaRuangan;
     }
 
-    public void setNamaBarang(String namaBarang) {
-        this.namaBarang = namaBarang;
+    public void setNamaRuangan(String namaRuangan) {
+        this.namaRuangan = namaRuangan;
     }
 
     public String getStartDate() {

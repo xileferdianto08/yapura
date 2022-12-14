@@ -47,6 +47,7 @@ public class ListPeminjamanRuanganAdapter extends RecyclerView.Adapter<ListPemin
         holder.endTime.setText(lAlat.getEndTime());
         holder.necessity.setText(lAlat.getNecessity());
         holder.namaUser.setText(lAlat.getNamaUser());
+        holder.status.setText(lAlat.getStatus());
 
 
         Glide.with(context).load(lAlat.getFoto()).thumbnail(0.5f).diskCacheStrategy(DiskCacheStrategy.ALL).into(holder.foto);
@@ -61,7 +62,7 @@ public class ListPeminjamanRuanganAdapter extends RecyclerView.Adapter<ListPemin
 
     public class HolderItem extends RecyclerView.ViewHolder{
         ImageView foto;
-        TextView namaBarang, capacity, startDate, startTime, endDate, endTime, necessity, namaUser;
+        TextView namaBarang, capacity, startDate, startTime, endDate, endTime, necessity, namaUser, status;
         Button btnBook;
 
         public HolderItem(View v){
@@ -76,6 +77,7 @@ public class ListPeminjamanRuanganAdapter extends RecyclerView.Adapter<ListPemin
             endTime = (TextView) v.findViewById(R.id.endTime);
             necessity = (TextView) v.findViewById(R.id.necessity);
             namaUser = (TextView)  v.findViewById(R.id.namaUser);
+            status = (TextView) v.findViewById(R.id.status);
 
 //            btnBook = (Button)  v.findViewById(R.id.btnBook);
         }
