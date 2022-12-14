@@ -90,7 +90,7 @@ public class AdminLogin extends AppCompatActivity {
                                     editor.putInt("adminId", adminId);
                                     editor.apply();
 
-                                    Intent intent = new Intent(AdminLogin.this, AdminPage.class);
+                                    Intent intent = new Intent(AdminLogin.this, AdminUploadImage.class);
                                     startActivity(intent);
 
                                     String name = sessions.getString("nama", "ga masuk");
