@@ -30,7 +30,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Booking"
+            android:text="Pinjam"
             android:textAlignment="center"
             android:textSize="14pt"
             />
@@ -49,7 +49,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Start Date"
+            android:text="Tanggal mulai pemakaian"
+            android:textStyle="bold"
             android:textSize="24sp" />
 
 
@@ -71,8 +72,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Start Time"
-            android:textSize="24sp" />
+            android:text="Waktu mulai pemakaian"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/startTime2"
@@ -92,7 +94,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="End Date"
+            android:text="Tanggal Selesai Pemakaian"
+            android:textStyle="bold"
             android:textSize="24sp" />
         <!--            <Button-->
         <!--                android:id="@+id/btnEndDate"-->
@@ -120,8 +123,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="End Time"
-            android:textSize="24sp" />
+            android:text="Waktu Selesai Pemakaian"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
         <!---->
         <TextView
             android:id="@+id/EndTime2"
@@ -141,8 +145,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Quantity"
-            android:textSize="24sp" />
+            android:text="Jumlah"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
 
         <EditText
             android:id="@+id/quantity"
@@ -157,8 +162,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Necessity"
-            android:textSize="24sp" />
+            android:text="Keperluan"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
 
         <EditText
             android:id="@+id/necessity"
@@ -167,7 +173,7 @@
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="90dp"
             android:gravity="center"
-            android:hint="Input Necessity" />
+            android:hint="Input Keperluan" />
 
         <Button
             android:id="@+id/btnBook"
@@ -175,7 +181,7 @@
             android:layout_height="50dp"
             android:layout_gravity="center"
 
-            android:text="Book" />
+            android:text="Pinjam" />
     </LinearLayout>
 
 </ScrollView>

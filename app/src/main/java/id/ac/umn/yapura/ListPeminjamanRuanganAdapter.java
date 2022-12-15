@@ -122,7 +122,7 @@ public class ListPeminjamanRuanganAdapter extends RecyclerView.Adapter<ListPemin
                                 String status = resp.getString("status").trim();
 
                                 if (status.equals("OK")){
-                                    Intent intent = new Intent(context, ListPeminjamanBarang.class);
+                                    Intent intent = new Intent(context, ListPeminjamanRuangan.class);
 
                                     context.startActivity(intent);
 

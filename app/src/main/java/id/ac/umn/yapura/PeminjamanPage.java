@@ -18,13 +18,14 @@ import android.widget.TextView;
 
 public class PeminjamanPage extends AppCompatActivity {
     TextView namaUser;
-    LinearLayout btnStatus;
+
+    SharedPreferences sessions;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.peminjaman_page);
-        SharedPreferences sessions = getSharedPreferences("user_data", Context.MODE_PRIVATE);
-        btnStatus = (LinearLayout) findViewById(R.id.btnStatus);
+        sessions = getSharedPreferences("user_data", Context.MODE_PRIVATE);
+        LinearLayout btnStatus = (LinearLayout) findViewById(R.id.btnStatus);
 
         namaUser = (TextView) findViewById(R.id.namaUser);
 
@@ -33,24 +34,7 @@ public class PeminjamanPage extends AppCompatActivity {
         btnStatus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder dialog = new AlertDialog.Builder(PeminjamanPage.this);
-                dialog.setTitle("Status peminjaman apa yang ingin dibuka?");
-
-                dialog.setPositiveButton("Status alat", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        startActivity(new Intent(PeminjamanPage.this, StatusBarangUser.class));
-                    }
-                });
-
-                dialog.setPositiveButton("Status ruangan", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        startActivity(new Intent(PeminjamanPage.this, StatusRuanganUser.class));
-                    }
-                });
-
-                dialog.create();
+                AlertDialog.Builder dialog = toStatus();
                 dialog.show();
 
             }
@@ -76,15 +60,58 @@ public class PeminjamanPage extends AppCompatActivity {
         startActivity(new Intent(PeminjamanPage.this, JadwalAlat.class));
     }
 
-    public void toLogout(View view){
-        SharedPreferences sessions = getSharedPreferences("user_data", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sessions.edit();
+    public AlertDialog.Builder toStatus(){
+        AlertDialog.Builder dialog = new AlertDialog.Builder(PeminjamanPage.this);
+        dialog.setTitle("Status peminjaman apa yang ingin dibuka?");
 
-        editor.clear();
-        editor.commit();
+        dialog.setPositiveButton("Status alat", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                startActivity(new Intent(PeminjamanPage.this, StatusBarangUser.class));
+            }
+        });
 
-        startActivity(new Intent(PeminjamanPage.this, MainActivity.class));
+        dialog.setNegativeButton("Status ruangan", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                startActivity(new Intent(PeminjamanPage.this, StatusRuanganUser.class));
+            }
+        });
+
+        dialog.create();
+        return dialog;
     }
+
+    public void toLogout(View view){
+        AlertDialog.Builder dialog = new AlertDialog.Builder(PeminjamanPage.this);
+        dialog.setTitle("Anda yakin ingin keluar?");
+
+        dialog.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                sessions = getSharedPreferences("user_data", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sessions.edit();
+
+                editor.clear();
+                editor.apply();
+
+
+                startActivity(new Intent(PeminjamanPage.this, MainActivity.class));
+            }
+        });
+
+        dialog.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        dialog.create();
+        dialog.show();
+    }
+
+
 
 
 }

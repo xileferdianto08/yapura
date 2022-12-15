@@ -286,8 +286,9 @@ public class BookBarang extends AppCompatActivity {
                                       String startDate, String startTime, String endDate,
                                       String endTime, int quantity, String necessity){
         AlertDialog.Builder bookDialog = new AlertDialog.Builder(this);
-        bookDialog.setTitle("Booking "+namaBarang+" confirmation");
-        bookDialog.setMessage("Are the data is all correct?");
+        bookDialog.setTitle("Konfirmasi peminjaman "+namaBarang);
+        bookDialog.setMessage("Apakah datanya sudah benar semua?");
+
 
         bookDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {

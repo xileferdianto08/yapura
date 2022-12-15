@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
@@ -17,10 +18,12 @@ import com.bumptech.glide.Glide;
 public class DetailBarangAdm extends AppCompatActivity {
     int barangId, userId;
     private TextView nama,maxQty, desc;
-    private Button btnBook;
+    private Button btnDel;
     private ImageView fotoBarang;
 
 //    SharedPreferences sessions = getSharedPreferences("user_data", Context.MODE_PRIVATE);
+
+    private final String URL_DELETE_BRG = "https://yapuraapi.000webhostapp.com/yapura_api/barang/delete_barang.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +34,8 @@ public class DetailBarangAdm extends AppCompatActivity {
         maxQty = (TextView) findViewById(R.id.maxQty);
         desc = (TextView) findViewById(R.id.desc);
         fotoBarang = (ImageView) findViewById(R.id.foto);
-        btnBook = (Button) findViewById(R.id.btnBook);
+        btnDel = (Button) findViewById(R.id.btnDel);
+
         Intent intent = getIntent();
 
 
@@ -50,23 +54,25 @@ public class DetailBarangAdm extends AppCompatActivity {
         maxQty.setText(maxqty);
         desc.setText(descBarang);
 
+        btnDel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder dialog = new AlertDialog.Builder(DetailBarangAdm.this);
+                dialog.setTitle("Delte");
+            }
+        });
+
 
     }
 
-    public void bookingRuangan(View view){
-        final Dialog dialog1 = new Dialog(DetailBarangAdm.this);
-        dialog1.setContentView(R.layout.book_ruangan);
-        TextView namaBrng = (TextView) dialog1.findViewById(R.id.namaBarang);
-        EditText startDate = (EditText) dialog1.findViewById(R.id.startDate);
-        EditText startTime = (EditText) dialog1.findViewById(R.id.startTime);
-        EditText endDate = (EditText) dialog1.findViewById(R.id.endDate);
-        EditText endTime = (EditText) dialog1.findViewById(R.id.endTime);
-        EditText capacity = (EditText) dialog1.findViewById(R.id.capacity);
-        EditText necessity = (EditText) dialog1.findViewById(R.id.necessity);
-
-        dialog1.show();
+    public void deleteBarang(int id){
 
     }
+
+
+
+
+
 
     public void backToMenu(View view){
         startActivity(new Intent(DetailBarangAdm.this, RuanganActivity.class));

@@ -1,8 +1,10 @@
 package id.ac.umn.yapura;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -36,12 +38,31 @@ public class AdminPage extends AppCompatActivity {
     }
 
     public void toLogout(View view){
-        SharedPreferences sessions = getSharedPreferences("admin_data", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sessions.edit();
+        AlertDialog.Builder dialog = new AlertDialog.Builder(AdminPage.this);
+        dialog.setTitle("Anda yakin ingin keluar?");
 
-        editor.clear();
-        editor.commit();
+        dialog.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                SharedPreferences sessions = getSharedPreferences("admin_data", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sessions.edit();
 
-        startActivity(new Intent(AdminPage.this, MainActivity.class));
+                editor.clear();
+                editor.apply();
+
+
+                startActivity(new Intent(AdminPage.this, MainActivity.class));
+            }
+        });
+
+        dialog.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        dialog.create();
+        dialog.show();
     }
 }

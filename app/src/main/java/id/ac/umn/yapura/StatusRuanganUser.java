@@ -73,13 +73,14 @@ public class StatusRuanganUser extends AppCompatActivity {
                         Log.d("JSONResponseTotal", String.valueOf(response.length()));
 
                         try {
+                            if(String.valueOf(response.length()).equals("0")){
 
-                            JSONArray arr = new JSONArray(response);
-                            JSONObject obj = arr.getJSONObject(0);
+                                Toast.makeText(StatusRuanganUser.this, "Data belum ada", Toast.LENGTH_SHORT).show();
+                            } else {
+                                JSONArray arr = new JSONArray(response);
+                                JSONObject obj = arr.getJSONObject(0);
 
-                            JSONArray getArr = obj.getJSONArray("data_peminjaman_r");
-                            String status = obj.getString("status");
-
+                                JSONArray getArr = obj.getJSONArray("data_peminjaman_r");
 
 
                                 for (i = 0; i < getArr.length(); i++) {
@@ -97,13 +98,7 @@ public class StatusRuanganUser extends AppCompatActivity {
 
                                     jadwalRuangan.add(newData);
                                 }
-
-                                if(status.equals("DATA_UNAVAIL")){
-                                    Toast.makeText(StatusRuanganUser.this, "Anda belum melakukan peminjaman ruangan!", Toast.LENGTH_LONG).show();
-                                }else if (status.equals("DB FAILED")){
-                                    Toast.makeText(StatusRuanganUser.this, "Terdapat kesalahan pada server", Toast.LENGTH_LONG).show();
-                                }
-
+                            }
 
                         } catch (JSONException e){
                             e.printStackTrace();

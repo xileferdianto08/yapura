@@ -1,15 +1,19 @@
 package id.ac.umn.yapura;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -22,7 +26,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 public class StatusBarangUser extends AppCompatActivity {
@@ -38,13 +44,15 @@ public class StatusBarangUser extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_jadwal_alat);
+        setContentView(R.layout.activity_status_barang_user);
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
 //        requestQueue = Volley.newRequestQueue(getApplicationContext());
         jadwalAlat = new ArrayList<>();
+        SharedPreferences session = getSharedPreferences("user_data", Context.MODE_PRIVATE);
+        int userId = Integer.parseInt(session.getString("userId", "0"));
 
-        getData();
+        getData(userId);
 
         manager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(manager);
@@ -54,7 +62,7 @@ public class StatusBarangUser extends AppCompatActivity {
 
     }
 
-    private void getData(){
+    private void getData(int userId){
 
         StringRequest request = new StringRequest(Request.Method.GET, URL_JADWAL_BARANG,
                 new Response.Listener<String>() {
@@ -65,14 +73,15 @@ public class StatusBarangUser extends AppCompatActivity {
                         Log.d("JSONResponseTotal", String.valueOf(response.length()));
 
                         try {
+                            if(String.valueOf(response.length()).equals("0")){
 
-                            JSONArray arr = new JSONArray(response);
-                            JSONObject obj = arr.getJSONObject(0);
-
-                            JSONArray getArr = obj.getJSONArray("data_peminjaman_b");
-                            if(getArr.length() < 0){
                                 Toast.makeText(StatusBarangUser.this, "Data belum ada", Toast.LENGTH_SHORT).show();
-                            }else {
+                            } else {
+                                JSONArray arr = new JSONArray(response);
+                                JSONObject obj = arr.getJSONObject(0);
+
+                                JSONArray getArr = obj.getJSONArray("data_peminjaman_b");
+
                                 for (i = 0; i < getArr.length(); i++) {
                                     JSONObject resp = getArr.getJSONObject(i);
                                     jadwalAlatList2 newData = new jadwalAlatList2();
@@ -90,7 +99,6 @@ public class StatusBarangUser extends AppCompatActivity {
                                 }
                             }
 
-
                         } catch (JSONException e){
                             e.printStackTrace();
                         }
@@ -101,7 +109,16 @@ public class StatusBarangUser extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
                 Log.d("ERRORRequest", "Error "+error.getMessage());
             }
-        });
+        }){
+            @Nullable
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("userId", String.valueOf(userId));
+
+                return params;
+            }
+        };
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(request);

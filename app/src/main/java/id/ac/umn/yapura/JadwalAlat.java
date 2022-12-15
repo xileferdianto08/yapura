@@ -1,11 +1,13 @@
 package id.ac.umn.yapura;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -106,6 +108,28 @@ public class JadwalAlat extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(request);
 
+    }
+
+    public void toStatus(View view){
+        AlertDialog.Builder dialog = new AlertDialog.Builder(JadwalAlat.this);
+        dialog.setTitle("Status peminjaman apa yang ingin dibuka?");
+
+        dialog.setPositiveButton("Status alat", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+               dialog.dismiss();
+            }
+        });
+
+        dialog.setNegativeButton("Status ruangan", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                startActivity(new Intent(JadwalAlat.this, StatusRuanganUser.class));
+            }
+        });
+
+        dialog.create();
+        dialog.show();
     }
 
 
