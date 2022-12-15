@@ -42,7 +42,7 @@
                 android:layout_marginTop="18dp"
                 android:fontFamily="@font/calibri"
                 android:padding="50dp"
-                android:text="Capacity: "
+                android:text="Kapasitas: "
                 android:textAlignment="viewStart"
                 android:textColor="@color/lightWhite"
                 android:textSize="18dp" />
@@ -161,7 +161,7 @@
                 android:layout_marginTop="85dp"
                 android:fontFamily="@font/calibri"
                 android:padding="50dp"
-                android:text="Necessity: "
+                android:text="Keperluan: "
 
                 android:textColor="@color/white"
                 android:textSize="18dp"
@@ -186,7 +186,7 @@
                 android:layout_marginTop="135dp"
                 android:fontFamily="@font/calibri"
                 android:padding="25dp"
-                android:text="Borrower:"
+                android:text="Peminjam:"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
             <TextView
