@@ -12,37 +12,47 @@
         android:id="@+id/imageview2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_gravity="left"
         android:layout_marginTop="40dp"
+        android:layout_marginLeft="140dp"
         android:fontFamily="@font/calibri"
-        android:text="Tambah Ruangan Baru"
+        android:text="Edit"
         android:textColor="#000000"
         android:textSize="26dp" />
-
+    <TextView
+        android:id="@+id/tvNamaBarang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginTop="-30dp"
+        android:layout_marginLeft="190dp"
+        android:fontFamily="@font/calibri"
+        android:text="Barang"
+        android:textColor="#000000"
+        android:textSize="26dp" />
     <EditText
         android:id="@+id/nama"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/lightWhite"
-        android:hint="Nama Ruangan"
+        android:hint="Nama item"
         android:padding="10dp"
+        android:textColor="@color/black"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="50dp"
-        android:textColor="@color/black"
         android:textSize="18dp"/>
 
     <EditText
-        android:id="@+id/capacity"
+        android:id="@+id/qty"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/lightWhite"
-        android:hint="Kapasitas Ruangan"
+        android:hint="Jumlah yang tersedia"
         android:inputType="number"
         android:padding="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:textColor="@color/black"
         android:layout_marginTop="15dp"
         android:textSize="18dp"/>
 
@@ -52,7 +62,7 @@
         android:layout_height="wrap_content"
         android:background="@color/lightWhite"
         android:hint="Description"
-        android:textColor="@color/black"
+        android:inputType="number"
         android:padding="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -60,14 +70,23 @@
         android:textSize="18dp"/>
 
 
-    <com.google.android.material.button.MaterialButton
+    <Button
         android:id="@+id/uploadImageBtn"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
         android:layout_marginLeft="20dp"
-        android:text="Upload Image"
+        android:text="Upload Gambar"
         android:textAllCaps="false" />
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="-51dp"
+        android:layout_marginLeft="190dp"
+        android:text="Ambil Foto"
+        android:textAllCaps="false"
+        android:id="@+id/captureImage"/>
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="210dp"
@@ -96,7 +115,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Add"
+            android:text="Tambahkan"
             android:background="#fa8072"
             android:textColor="#ffffff"
             android:layout_marginRight="5dp"/>
@@ -107,7 +126,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="CANCEL"
-            android:onClick="backToList"
             android:background="#323232"
             android:textColor="#ffffff"
             android:layout_marginLeft="5dp"/>

@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="40dp"
         android:fontFamily="@font/calibri"
         android:text="Tambah Barang Baru"
         android:textColor="#000000"
@@ -24,21 +24,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/lightWhite"
-        android:hint="Enter name items"
+        android:hint="Nama item"
         android:padding="10dp"
+        android:textColor="@color/black"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="50dp"
         android:textSize="18dp"/>
 
     <EditText
-        android:id="@+id/maxCapacity"
+        android:id="@+id/qty"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/lightWhite"
-        android:hint="Max Capacity"
+        android:hint="Jumlah yang tersedia"
         android:inputType="number"
         android:padding="10dp"
+        android:textColor="#000000"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="15dp"
@@ -50,7 +52,7 @@
         android:layout_height="wrap_content"
         android:background="@color/lightWhite"
         android:hint="Description"
-        android:inputType="number"
+        android:textColor="#000000"
         android:padding="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -58,14 +60,37 @@
         android:textSize="18dp"/>
 
 
-    <com.google.android.material.button.MaterialButton
+    <Button
         android:id="@+id/uploadImageBtn"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
         android:layout_marginLeft="20dp"
-        android:text="Upload Image"
+        android:text="Upload Gambar"
         android:textAllCaps="false" />
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="-51dp"
+        android:layout_marginLeft="190dp"
+        android:text="Ambil Foto"
+        android:textAllCaps="false"
+        android:id="@+id/captureImage"/>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="210dp"
+        android:layout_marginTop="16dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:id="@+id/uploadImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/defaultphoto"/>
+    </com.google.android.material.card.MaterialCardView>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -80,7 +105,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Add"
+            android:text="Tambahkan"
             android:background="#fa8072"
             android:textColor="#ffffff"
             android:layout_marginRight="5dp"/>

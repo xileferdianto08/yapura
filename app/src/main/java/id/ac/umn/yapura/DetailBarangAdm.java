@@ -18,9 +18,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 
 import org.json.JSONArray;
@@ -33,7 +35,7 @@ import java.util.Map;
 public class DetailBarangAdm extends AppCompatActivity {
     int barangId, userId;
     private TextView nama,maxQty, desc;
-    private Button btnDel;
+    private Button btnDel, btnEdit;
     private ImageView fotoBarang;
 
 //    SharedPreferences sessions = getSharedPreferences("user_data", Context.MODE_PRIVATE);
@@ -50,6 +52,8 @@ public class DetailBarangAdm extends AppCompatActivity {
         desc = (TextView) findViewById(R.id.desc);
         fotoBarang = (ImageView) findViewById(R.id.foto);
         btnDel = (Button) findViewById(R.id.btnDel);
+        btnEdit = (Button) findViewById(R.id.btnEdit);
+
 
         Intent intent = getIntent();
 
@@ -68,6 +72,20 @@ public class DetailBarangAdm extends AppCompatActivity {
         nama.setText(namaBarang);
         maxQty.setText(maxqty);
         desc.setText(descBarang);
+
+        btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DetailBarangAdm.this, EditBarangAdm.class);
+                intent.putExtra("id", String.valueOf(id));
+                intent.putExtra("nama", namaBarang);
+                intent.putExtra("maxQty", maxqty);
+                intent.putExtra("desc", descBarang);
+                intent.putExtra("foto", foto);
+                startActivity(intent);
+
+            }
+        });
 
         btnDel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -140,6 +158,8 @@ public class DetailBarangAdm extends AppCompatActivity {
                 return params;
             }
         };
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(request);
     }
 
 
@@ -148,6 +168,6 @@ public class DetailBarangAdm extends AppCompatActivity {
 
 
     public void backToMenu(View view){
-        startActivity(new Intent(DetailBarangAdm.this, RuanganActivity.class));
+        startActivity(new Intent(DetailBarangAdm.this, ListBarangAdmin.class));
     }
 }

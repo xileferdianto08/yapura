@@ -3,6 +3,7 @@ package id.ac.umn.yapura;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -15,23 +16,29 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class DetailRuanganAdm extends AppCompatActivity {
     int ruangId, userId;
     private TextView nama,maxCapacity, desc;
-    private Button btnDel;
+    private Button btnDel, btnEdit;
     private ImageView fotoRuangan;
+    List<barangList> barang;
+    public Intent intent;
 
 //    SharedPreferences sessions = getSharedPreferences("user_data", Context.MODE_PRIVATE);
 
@@ -46,9 +53,11 @@ public class DetailRuanganAdm extends AppCompatActivity {
         desc = (TextView) findViewById(R.id.desc);
         fotoRuangan = (ImageView) findViewById(R.id.foto);
         btnDel = (Button) findViewById(R.id.btnDel);
+        btnEdit = (Button) findViewById(R.id.btnEdit);
+        barang = new ArrayList<>();
 
-        try {
-            Intent intent = getIntent();
+
+            intent = getIntent();
 
             String namaRuangan = intent.getStringExtra("nama");
             String maxcapacity = intent.getStringExtra("maxCapacity");
@@ -62,6 +71,20 @@ public class DetailRuanganAdm extends AppCompatActivity {
             nama.setText(namaRuangan);
             maxCapacity.setText(maxcapacity);
             desc.setText(descRuangan);
+
+            btnEdit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(DetailRuanganAdm.this, EditRuanganAdm.class);
+                    intent.putExtra("id", String.valueOf(id));
+                    intent.putExtra("nama", namaRuangan);
+                    intent.putExtra("maxQty", maxcapacity);
+                    intent.putExtra("desc", descRuangan);
+                    intent.putExtra("foto", foto);
+                    startActivity(intent);
+
+                }
+            });
 
             btnDel.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -84,18 +107,19 @@ public class DetailRuanganAdm extends AppCompatActivity {
                         }
                     });
 
-                    dialog.create().show();
+                    dialog.create();
+                    dialog.show();
                 }
             });
-        }catch (NumberFormatException ex){
-            ex.printStackTrace();
-        }
+
     }
-    public void deleteRuangan(int id){
+    private void deleteRuangan(int id){
         StringRequest request = new StringRequest(Request.Method.POST, URL_DELETE_RUANG,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        Log.d("JSONResponse", response.toString());
+                        Log.d("JSONResponseTotal", String.valueOf(response.length()));
                         try{
                             JSONObject obj = new JSONObject(response);
                             JSONObject resp = obj.getJSONObject("server_response");
@@ -106,7 +130,14 @@ public class DetailRuanganAdm extends AppCompatActivity {
                                 String status = resp.getString("status").trim();
 
                                 if(status.equals("OK")){
-                                    Intent intent = new Intent(DetailRuanganAdm.this, ListPeminjamanBarang.class);
+                                    intent = getIntent();
+                                    barangList delData = new barangList();
+                                    barang.removeIf(n -> (n.getId() == Integer.parseInt(intent.getStringExtra("id"))));
+                                    barang.removeIf(n -> (n.getNama() == intent.getStringExtra("nama")));
+                                    barang.removeIf(n -> (n.getMaxQty() == Integer.parseInt(intent.getStringExtra("maxCapacity"))));
+                                    barang.removeIf(n -> (n.getDescription() == intent.getStringExtra("desc")));
+                                    barang.removeIf(n -> (n.getFoto() == intent.getStringExtra("foto")));
+                                    Intent intent = new Intent(DetailRuanganAdm.this, ListRuanganAdmin.class);
                                     startActivity(intent);
 
                                     Toast.makeText(DetailRuanganAdm.this, "Item berhasil dihapus!", Toast.LENGTH_SHORT).show();
@@ -134,10 +165,13 @@ public class DetailRuanganAdm extends AppCompatActivity {
                 return params;
             }
         };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(request);
     }
 
     public void backToMenu(View view){
-        startActivity(new Intent(DetailRuanganAdm.this, RuanganActivity.class));
+        startActivity(new Intent(DetailRuanganAdm.this, ListRuanganAdmin.class));
     }
 
 

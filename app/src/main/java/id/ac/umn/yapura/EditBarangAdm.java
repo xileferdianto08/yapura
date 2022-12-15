@@ -1,10 +1,8 @@
 package id.ac.umn.yapura;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -12,14 +10,23 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.CustomTarget;
+import com.bumptech.glide.request.transition.Transition;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -29,30 +36,60 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
 
 
-
-public class AdminAddRuangan extends AppCompatActivity {
+public class EditBarangAdm extends AppCompatActivity {
     private Button uploadImage, captureImage, btnAdd, btnCancel;
     private ImageView uploadImageView;
     static final int REQUEST_IMAGE_CAPTURE = 1;
-    private EditText namaRuangan, capacityRuangan, description;
+    private EditText namaBarang, qtyBarang, description;
+    private TextView tvNamaBarang;
 
     private final int REQ = 2;
-    public Bitmap gambarRuangan;
+    public Bitmap gambarBarang;
 
-    private static String URL_ADD_RUANGAN = "https://yapuraapi.000webhostapp.com/yapura_api/ruangan/tambah_ruangan.php";
+    private static String URL_ADD_BARANG = "https://yapuraapi.000webhostapp.com/yapura_api/barang/update_barang.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_add_ruangan);
+        setContentView(R.layout.activity_edit_barang_adm);
         uploadImage = (Button) findViewById(R.id.uploadImageBtn);
         btnAdd = (Button) findViewById(R.id.btnAdd);
         uploadImageView = (ImageView) findViewById(R.id.uploadImageView);
-        namaRuangan = (EditText) findViewById(R.id.nama);
-        capacityRuangan = (EditText) findViewById(R.id.capacity);
+        namaBarang = (EditText) findViewById(R.id.nama);
+        qtyBarang = (EditText) findViewById(R.id.qty);
         description = (EditText) findViewById(R.id.desc);
+        captureImage = (Button) findViewById(R.id.captureImage);
+        tvNamaBarang = (TextView) findViewById(R.id.tvNamaBarang);
+
+        Intent intent = getIntent();
+        tvNamaBarang.setText(intent.getStringExtra("nama"));
+        namaBarang.setText(intent.getStringExtra("nama"));
+        qtyBarang.setText(intent.getStringExtra("maxQty"));
+        description.setText(intent.getStringExtra("desc"));
+        int barangId = Integer.parseInt(intent.getStringExtra("id"));
+        Glide.with(this).load(intent.getStringExtra("foto")).into(uploadImageView);
+        Glide.with(this).asBitmap().load(intent.getStringExtra("foto")).into(new CustomTarget<Bitmap>() {
+            @Override
+            public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
+                gambarBarang = resource;
+            }
+            @Override
+            public void onLoadCleared(@Nullable Drawable placeholder) {
+            }
+        });
+
+        captureImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                if(takePictureIntent.resolveActivity(getPackageManager())!= null){
+                    startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+                }
+            }
+        });
 
         uploadImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,22 +102,22 @@ public class AdminAddRuangan extends AppCompatActivity {
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String namaRuang = namaRuangan.getText().toString();
+                String namaBarang1 = namaBarang.getText().toString();
                 String desc = description.getText().toString();
-                String capacity = capacityRuangan.getText().toString();
+                String qty = qtyBarang.getText().toString();
 
                 Bitmap gambar = getGambarFromGallery();
 
-                if(namaRuang.isEmpty()){
-                    namaRuangan.setError("Nama ruangan tidak boleh kosong");
+                if(namaBarang1.isEmpty()){
+                    namaBarang.setError("Nama ruangan tidak boleh kosong");
                 }else if (desc.isEmpty()){
                     description.setError("Deskripsi ruangan tidak boleh kosong");
-                } else if(capacity.isEmpty()){
-                    capacityRuangan.setError("Kapasitas ruangan tidak boleh kosong");
+                } else if(qty.isEmpty()){
+                    qtyBarang.setError("Kapasitas ruangan tidak boleh kosong");
                 } else if(gambar == null){
-                    Toast.makeText(AdminAddRuangan.this, "Gambar tidak boleh kosong", Toast.LENGTH_SHORT);
+                    Toast.makeText(EditBarangAdm.this, "Gambar tidak boleh kosong", Toast.LENGTH_SHORT);
                 } else{
-                    addNew(namaRuang, desc, Integer.parseInt(capacity), gambar);
+                    editBrg(barangId,namaBarang1, desc, Integer.parseInt(qty), gambar);
 
                 }
 
@@ -101,8 +138,8 @@ public class AdminAddRuangan extends AppCompatActivity {
 
 
 
-    private void addNew(String namaRuangan, String desc, int capacity, Bitmap gambarRuangan){
-        UploadMultipartData request = new UploadMultipartData(Request.Method.POST, URL_ADD_RUANGAN,
+    private void editBrg(int barangId, String namaBarang, String desc, int qty, Bitmap gambarBarang){
+        UploadMultipartData request = new UploadMultipartData(Request.Method.POST, URL_ADD_BARANG,
                 new Response.Listener<NetworkResponse>() {
                     @Override
                     public void onResponse(NetworkResponse response) {
@@ -116,15 +153,13 @@ public class AdminAddRuangan extends AppCompatActivity {
                                 String status = resp.getString("status").trim();
 
                                 if(status.equals("OK")){
-                                    Intent intent = new Intent(AdminAddRuangan.this, ListRuanganAdmin.class);
+                                    Intent intent = new Intent(EditBarangAdm.this, ListBarangAdmin.class);
                                     startActivity(intent);
 
-                                    Toast.makeText(AdminAddRuangan.this, "Data baru berhasil ditambahkan", Toast.LENGTH_SHORT);
+                                    Toast.makeText(EditBarangAdm.this, "Data berhasil diedit!", Toast.LENGTH_SHORT);
 
-                                }else if(status.equals("DATA_EXIST")){
-                                    Toast.makeText(AdminAddRuangan.this, "Data sudah terdaftar!", Toast.LENGTH_SHORT);
                                 }else if(status.equals("FAILED") || status.equals("DB FAILED")){
-                                    Toast.makeText(AdminAddRuangan.this, "Terdapat kesalahan pada server", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(EditBarangAdm.this, "Terdapat kesalahan pada server", Toast.LENGTH_LONG).show();
                                 }
                             }
 
@@ -136,7 +171,7 @@ public class AdminAddRuangan extends AppCompatActivity {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(AdminAddRuangan.this, "Error "+error.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(EditBarangAdm.this, "Error "+error.toString(), Toast.LENGTH_SHORT).show();
             }
         })
         {
@@ -144,8 +179,9 @@ public class AdminAddRuangan extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put("nama", namaRuangan);
-                params.put("maxCapacity", String.valueOf(capacity));
+                params.put("barangId", String.valueOf(barangId));
+                params.put("nama", namaBarang);
+                params.put("maxQty", String.valueOf(qty));
                 params.put("desc", desc);
 
 
@@ -156,23 +192,29 @@ public class AdminAddRuangan extends AppCompatActivity {
             protected Map<String, DataPart> getByteData() throws AuthFailureError {
                 Map<String, DataPart> params = new HashMap<>();
                 long imagename = System.currentTimeMillis();
-                params.put("gambar", new DataPart(imagename +".png", getFileDataFromDrawable(gambarRuangan)));
+                params.put("gambar", new DataPart(imagename +".png", getFileDataFromDrawable(gambarBarang)));
 
                 return params;
             }
         };
-        Volley.newRequestQueue(this).add(request);
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(request);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == REQ && resultCode == RESULT_OK) {
+        if(requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK){
+            Bundle extras = data.getExtras();
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
+            this.gambarBarang = imageBitmap;
+            uploadImageView.setImageBitmap(imageBitmap);
+        }else if(requestCode == REQ && resultCode == RESULT_OK) {
             Uri uri = data.getData();
             Bitmap newGambar = null;
             try {
                 newGambar = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);//data gambar dari galeri
-                this.gambarRuangan = newGambar;
+                this.gambarBarang = newGambar;
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -181,11 +223,11 @@ public class AdminAddRuangan extends AppCompatActivity {
     }
 
     private Bitmap getGambarFromGallery(){
-        return gambarRuangan;
+        return gambarBarang;
     }
 
     public void backToList(View view){
-        startActivity(new Intent(AdminAddRuangan.this, ListRuanganAdmin.class));
+        startActivity(new Intent(EditBarangAdm.this, ListBarangAdmin.class));
     }
 
 }

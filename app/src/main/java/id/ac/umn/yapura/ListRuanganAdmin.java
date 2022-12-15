@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -15,6 +16,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -49,6 +51,8 @@ public class ListRuanganAdmin extends AppCompatActivity {
         recyclerView.setLayoutManager(manager);
         adapter = new RuanganAdminAdapter(ruangan, ListRuanganAdmin.this);
         recyclerView.setAdapter(adapter);
+
+
 
 
     }
@@ -101,6 +105,11 @@ public class ListRuanganAdmin extends AppCompatActivity {
         requestQueue.add(request);
 
     }
+
+    public void toAddRuangan(View view){
+        startActivity(new Intent(ListRuanganAdmin.this, AdminAddRuangan.class));
+    }
+
 
     public void backToMain(View view){
         startActivity(new Intent(ListRuanganAdmin.this, AdminPage.class));

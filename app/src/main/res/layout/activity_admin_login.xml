@@ -163,29 +163,6 @@
                                 android:maxLines="1"
                                 android:textColor="@android:color/black"
                                 android:textSize="16sp" />
-
-                            <TextView
-                                android:id="@+id/textView3"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="Don't have an account?"
-                                android:textColor="@color/black"
-                                android:layout_below="@+id/btnLogin"
-                                android:layout_marginTop="30dp"
-                                android:textAlignment="center"
-                                android:gravity="center_horizontal" />
-
-                            <TextView
-                                android:id="@+id/signUp"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:onClick="toRegister"
-                                android:text="Sign up here"
-                                android:textColor="@color/black"
-                                android:layout_below="@id/textView3"
-                                android:textAlignment="center"
-                                android:layout_marginBottom="-2dp"
-                                android:gravity="center_horizontal" />
                         </com.google.android.material.textfield.TextInputLayout>
 
                     </LinearLayout>

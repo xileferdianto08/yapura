@@ -99,6 +99,10 @@ public class ListBarangAdmin extends AppCompatActivity {
 
     }
 
+    public void toAddBarang(View view){
+        startActivity(new Intent(ListBarangAdmin.this, AdminAddBarang.class));
+    }
+
 
     public void backToMain(View view){
         startActivity(new Intent(ListBarangAdmin.this, AdminPage.class));
