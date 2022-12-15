@@ -1,24 +1,15 @@
 package id.ac.umn.yapura;
 
-public class peminjamanRuanganList {
-    int capacity, id;
-    String namaRuangan, startDate, startTime, endDate, endTime, necessity, status, foto, namaUser;
+public class jadwalAlatList2 {
+    int qty;
+    String namaBarang, startDate, startTime, endDate, endTime, necessity, status, foto;
 
-    public peminjamanRuanganList() {
+    public jadwalAlatList2() {
     }
 
-    public String getNamaUser() {
-        return namaUser;
-    }
-
-    public void setNamaUser(String namaUser) {
-        this.namaUser = namaUser;
-    }
-
-    public peminjamanRuanganList(int capacity, int id, String namaRuangan, String startDate, String startTime, String endDate, String endTime, String necessity, String status, String foto, String namaUser) {
-        this.id = id;
-        this.capacity = capacity;
-        this.namaRuangan = namaRuangan;
+    public jadwalAlatList2(int qty, String namaBarang, String startDate, String startTime, String endDate, String endTime, String necessity, String status, String foto) {
+        this.qty = qty;
+        this.namaBarang = namaBarang;
         this.startDate = startDate;
         this.startTime = startTime;
         this.endDate = endDate;
@@ -26,15 +17,6 @@ public class peminjamanRuanganList {
         this.necessity = necessity;
         this.status = status;
         this.foto = foto;
-        this.namaUser = namaUser;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getFoto() {
@@ -47,20 +29,20 @@ public class peminjamanRuanganList {
 
 
 
-    public int getCapacity() {
-        return capacity;
+    public int getQty() {
+        return qty;
     }
 
-    public void setCapacity(int capacity) {
-        this.capacity = capacity;
+    public void setQty(int qty) {
+        this.qty = qty;
     }
 
-    public String getNamaRuangan() {
-        return namaRuangan;
+    public String getNamaBarang() {
+        return namaBarang;
     }
 
-    public void setNamaRuangan(String namaRuangan) {
-        this.namaRuangan = namaRuangan;
+    public void setNamaBarang(String namaBarang) {
+        this.namaBarang = namaBarang;
     }
 
     public String getStartDate() {

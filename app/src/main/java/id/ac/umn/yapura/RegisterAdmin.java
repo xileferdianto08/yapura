@@ -83,14 +83,14 @@ public class RegisterAdmin extends AppCompatActivity{
 
                                 if(status.equals("OK")){
 
-                                    Intent intent = new Intent(RegisterAdmin.this, AdminPage.class);
+                                    Intent intent = new Intent(RegisterAdmin.this, AdminLogin.class);
                                     startActivity(intent);
 
                                     Toast.makeText(RegisterAdmin.this, "Registrasi berhasil, silahkan login", Toast.LENGTH_SHORT).show();
                                 }else if (status.equals("USER_ALREADY_EXIST")){
                                     Toast.makeText(RegisterAdmin.this, "Email atau Password salah", Toast.LENGTH_LONG).show();
                                 }else if (status.equals("EMAIL_INCORRECT_FORMAT")){
-                                    Toast.makeText(RegisterAdmin.this, "Mohon untuk menggunakan email student UMN!", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(RegisterAdmin.this, "Mohon untuk menggunakan email UMN!", Toast.LENGTH_LONG).show();
                                 }else if(status.equals("FAILED") || status.equals("DB FAILED")){
                                     Toast.makeText(RegisterAdmin.this, "Terdapat kesalahan pada server", Toast.LENGTH_LONG).show();
                                 }

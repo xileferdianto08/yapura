@@ -81,6 +81,7 @@ public class ListPeminjamanBarang extends AppCompatActivity {
                                         Toast.makeText(ListPeminjamanBarang.this, "Belum ada data peminjaman ruangan", Toast.LENGTH_LONG).show();
                                     }else {
                                         peminjamanAlatList newData = new peminjamanAlatList();
+                                        newData.setId(resp.getInt("id"));
                                         newData.setNamaBarang(resp.getString("namaBarang"));
                                         newData.setQty(resp.getInt("qty"));
                                         newData.setStartDate(resp.getString("startDate"));

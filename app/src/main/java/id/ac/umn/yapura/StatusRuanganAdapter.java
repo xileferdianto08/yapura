@@ -16,11 +16,11 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.util.List;
 
-public class JadwalRuanganAdapter extends RecyclerView.Adapter<JadwalRuanganAdapter.HolderItem> {
-    List<jadwalRuanganList> jRuangan;
+public class StatusRuanganAdapter extends RecyclerView.Adapter<StatusRuanganAdapter.HolderItem> {
+    List<jadwalRuanganList2> jRuangan;
     Context context;
 
-    public JadwalRuanganAdapter(List<jadwalRuanganList> jRuangan, Context context) {
+    public StatusRuanganAdapter(List<jadwalRuanganList2> jRuangan, Context context) {
         this.jRuangan = jRuangan;
         this.context = context;
     }
@@ -28,7 +28,7 @@ public class JadwalRuanganAdapter extends RecyclerView.Adapter<JadwalRuanganAdap
     @NonNull
     @Override
     public HolderItem onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View layout = LayoutInflater.from(context.getApplicationContext()).inflate(R.layout.jadwal_ruangan_card, parent, false);
+        View layout = LayoutInflater.from(context.getApplicationContext()).inflate(R.layout.jadwal_ruangan_card3, parent, false);
         HolderItem holder = new HolderItem(layout);
 
 
@@ -37,7 +37,7 @@ public class JadwalRuanganAdapter extends RecyclerView.Adapter<JadwalRuanganAdap
 
     @Override
     public void onBindViewHolder(@NonNull HolderItem holder, int position) {
-        jadwalRuanganList lRuangan = jRuangan.get(position);
+        jadwalRuanganList2 lRuangan = jRuangan.get(position);
 
         holder.namaRuangan.setText(lRuangan.getNamaRuangan());
         holder.capacity.setText(String.valueOf(lRuangan.getCapacity()));
@@ -46,6 +46,7 @@ public class JadwalRuanganAdapter extends RecyclerView.Adapter<JadwalRuanganAdap
         holder.endDate.setText(lRuangan.getEndDate());
         holder.endTime.setText(lRuangan.getEndTime());
         holder.necessity.setText(lRuangan.getNecessity());
+        holder.status.setText(lRuangan.getStatus());
 
 
         Glide.with(context).load(lRuangan.getFoto()).thumbnail(0.5f).diskCacheStrategy(DiskCacheStrategy.ALL).into(holder.foto);
@@ -60,7 +61,7 @@ public class JadwalRuanganAdapter extends RecyclerView.Adapter<JadwalRuanganAdap
 
     public class HolderItem extends RecyclerView.ViewHolder{
         ImageView foto;
-        TextView namaRuangan, capacity, startDate, startTime, endDate, endTime, necessity;
+        TextView namaRuangan, capacity, startDate, startTime, endDate, endTime, necessity, status;
         Button btnBook;
 
         public HolderItem(View v){
@@ -74,6 +75,7 @@ public class JadwalRuanganAdapter extends RecyclerView.Adapter<JadwalRuanganAdap
             endDate = (TextView) v.findViewById(R.id.endDate);
             endTime = (TextView) v.findViewById(R.id.endTime);
             necessity = (TextView) v.findViewById(R.id.necessity);
+            status = (TextView) v.findViewById(R.id.status);
 
 //            btnBook = (Button)  v.findViewById(R.id.btnBook);
         }

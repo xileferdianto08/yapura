@@ -72,6 +72,7 @@ public class BookRuangan extends AppCompatActivity {
         String namaRuangan = intent.getStringExtra("namaRuangan");
         ruanganID = Integer.parseInt(intent.getStringExtra("ruangId"));
 
+        namaRuang.setText(namaRuangan);
 
 
         Calendar calendar = Calendar.getInstance();
@@ -287,8 +288,8 @@ public class BookRuangan extends AppCompatActivity {
     public AlertDialog.Builder isBook(int userId, int ruanganID, String namaRuangan,
                                       String startDate, String startTime, String endDate, String endTime, int capacity, String necessity){
         AlertDialog.Builder bookDialog = new AlertDialog.Builder(this);
-        bookDialog.setTitle("Booking "+namaRuangan+" confirmation");
-        bookDialog.setMessage("Are the data is all correct?");
+        bookDialog.setTitle("Konfirmasi peminjaman "+namaRuangan);
+        bookDialog.setMessage("Apakah datanya sudah benar semua?");
 
         bookDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {

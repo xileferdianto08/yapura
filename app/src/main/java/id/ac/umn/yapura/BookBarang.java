@@ -70,6 +70,8 @@ public class BookBarang extends AppCompatActivity {
         String namaBarang = intent.getStringExtra("namaBarang");
         barangID = Integer.parseInt(intent.getStringExtra("barangId"));
 
+        namaBrg.setText(namaBarang);
+
         Calendar calendar = Calendar.getInstance();
         MaterialTimePicker materialTimePicker = new MaterialTimePicker.Builder().setTimeFormat(TimeFormat.CLOCK_24H).
                 setHour(calendar.get(Calendar.HOUR_OF_DAY))
@@ -284,8 +286,9 @@ public class BookBarang extends AppCompatActivity {
                                       String startDate, String startTime, String endDate,
                                       String endTime, int quantity, String necessity){
         AlertDialog.Builder bookDialog = new AlertDialog.Builder(this);
-        bookDialog.setTitle("Booking "+namaBarang+" confirmation");
-        bookDialog.setMessage("Are the data is all correct?");
+        bookDialog.setTitle("Konfirmasi peminjaman "+namaBarang);
+        bookDialog.setMessage("Apakah datanya sudah benar semua?");
+
 
         bookDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
@@ -332,7 +335,7 @@ public class BookBarang extends AppCompatActivity {
                                     Toast.makeText(BookBarang.this, "Kapasitas melebihi kapasitas maksimal!", Toast.LENGTH_SHORT);
                                 }else if(status.equals("NO_ITEMS_LEFT")){
                                     Toast.makeText(BookBarang.this, "Semua alat "+namaBarang+" sedang terpinjam!", Toast.LENGTH_SHORT);
-                                } else if(status.equals("FAILED") || status.equals("DB FAILED")){
+                                } else if(status.equals("FAILED") || status.equals("DB_FAILED")){
                                     Toast.makeText(BookBarang.this, "Terdapat kesalahan pada server", Toast.LENGTH_LONG).show();
                                 }
                             }

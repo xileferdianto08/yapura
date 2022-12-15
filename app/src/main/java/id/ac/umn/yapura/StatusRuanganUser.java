@@ -1,17 +1,19 @@
 package id.ac.umn.yapura;
 
-import android.content.DialogInterface;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -24,41 +26,45 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
-public class JadwalAlat extends AppCompatActivity {
+public class StatusRuanganUser extends AppCompatActivity {
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
     RecyclerView.LayoutManager manager;
-    List<jadwalAlatList> jadwalAlat;
+    List<jadwalRuanganList2> jadwalRuangan;
 
 
-    private final String URL_JADWAL_BARANG = "https://yapuraapi.000webhostapp.com/yapura_api/barang/list_borrowed_barang.php";
+    private final String URL_JADWAL_RUANGAN_USER = "https://yapuraapi.000webhostapp.com/yapura_api/ruangan/user_borrow_ruang.php";
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_jadwal_alat);
+        setContentView(R.layout.activity_status_ruangan_user);
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
 //        requestQueue = Volley.newRequestQueue(getApplicationContext());
-        jadwalAlat = new ArrayList<>();
+        jadwalRuangan = new ArrayList<>();
+        SharedPreferences sessions = getSharedPreferences("user_data", Context.MODE_PRIVATE);
+        int userId = Integer.parseInt(sessions.getString("userId", "0"));
 
-        getData();
+        getData(userId);
 
         manager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(manager);
-        adapter = new JadwalAlatAdapter(jadwalAlat, JadwalAlat.this);
+        adapter = new StatusRuanganAdapter(jadwalRuangan, StatusRuanganUser.this);
         recyclerView.setAdapter(adapter);
 
 
     }
 
-    private void getData(){
+    private void getData(int userId){
 
-        StringRequest request = new StringRequest(Request.Method.GET, URL_JADWAL_BARANG,
+        StringRequest request = new StringRequest(Request.Method.POST, URL_JADWAL_RUANGAN_USER,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -67,19 +73,21 @@ public class JadwalAlat extends AppCompatActivity {
                         Log.d("JSONResponseTotal", String.valueOf(response.length()));
 
                         try {
+                            if(String.valueOf(response.length()).equals("0")){
 
-                            JSONArray arr = new JSONArray(response);
-                            JSONObject obj = arr.getJSONObject(0);
+                                Toast.makeText(StatusRuanganUser.this, "Data belum ada", Toast.LENGTH_SHORT).show();
+                            } else {
+                                JSONArray arr = new JSONArray(response);
+                                JSONObject obj = arr.getJSONObject(0);
 
-                            JSONArray getArr = obj.getJSONArray("data_peminjaman_b");
-                            if(getArr.length() < 0){
-                                Toast.makeText(JadwalAlat.this, "Data belum ada", Toast.LENGTH_SHORT).show();
-                            }else {
+                                JSONArray getArr = obj.getJSONArray("data_peminjaman_r");
+
+
                                 for (i = 0; i < getArr.length(); i++) {
                                     JSONObject resp = getArr.getJSONObject(i);
-                                    jadwalAlatList newData = new jadwalAlatList();
-                                    newData.setNamaBarang(resp.getString("namaBarang"));
-                                    newData.setQty(resp.getInt("qty"));
+                                    jadwalRuanganList2 newData = new jadwalRuanganList2();
+                                    newData.setNamaRuangan(resp.getString("namaRuangan"));
+                                    newData.setCapacity(resp.getInt("capacity"));
                                     newData.setStartDate(resp.getString("startDate"));
                                     newData.setEndDate(resp.getString("endDate"));
                                     newData.setStartTime(resp.getString("startTime"));
@@ -88,10 +96,9 @@ public class JadwalAlat extends AppCompatActivity {
                                     newData.setNecessity(resp.getString("necessity"));
                                     newData.setFoto(resp.getString("gambar"));
 
-                                    jadwalAlat.add(newData);
+                                    jadwalRuangan.add(newData);
                                 }
                             }
-
 
                         } catch (JSONException e){
                             e.printStackTrace();
@@ -103,37 +110,24 @@ public class JadwalAlat extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
                 Log.d("ERRORRequest", "Error "+error.getMessage());
             }
-        });
+        }){
+            @Nullable
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("userId", String.valueOf(userId));
+
+                return params;
+            }
+        };
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(request);
 
     }
 
-    public void toStatus(View view){
-        AlertDialog.Builder dialog = new AlertDialog.Builder(JadwalAlat.this);
-        dialog.setTitle("Status peminjaman apa yang ingin dibuka?");
-
-        dialog.setPositiveButton("Status alat", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-               dialog.dismiss();
-            }
-        });
-
-        dialog.setNegativeButton("Status ruangan", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                startActivity(new Intent(JadwalAlat.this, StatusRuanganUser.class));
-            }
-        });
-
-        dialog.create();
-        dialog.show();
-    }
-
 
     public void backToMainMenu(View view){
-        startActivity(new Intent(JadwalAlat.this, PeminjamanPage.class));
+        startActivity(new Intent(StatusRuanganUser.this, PeminjamanPage.class));
     }
 }

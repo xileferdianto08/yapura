@@ -49,7 +49,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Start Date"
+            android:text="Tanggal mulai pemakaian"
+            android:textStyle="bold"
             android:textSize="24sp" />
 
 
@@ -71,8 +72,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Start Time"
-            android:textSize="24sp" />
+            android:text="Waktu mulai pemakaian"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/startTime2"
@@ -92,7 +94,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="End Date"
+            android:text="Tanggal Selesai Pemakaian"
+            android:textStyle="bold"
             android:textSize="24sp" />
         <!--            <Button-->
         <!--                android:id="@+id/btnEndDate"-->
@@ -120,8 +123,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="End Time"
-            android:textSize="24sp" />
+            android:text="Waktu Selesai Pemakaian"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
         <!---->
         <TextView
             android:id="@+id/EndTime2"
@@ -141,8 +145,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Capacity"
-            android:textSize="24sp" />
+            android:text="Kapasitas"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
 
         <EditText
             android:id="@+id/capacity"
@@ -157,8 +162,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Necessity"
-            android:textSize="24sp" />
+            android:text="Keperluan"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
 
         <EditText
             android:id="@+id/necessity"
@@ -175,7 +181,7 @@
             android:layout_height="50dp"
             android:layout_gravity="center"
 
-            android:text="Book" />
+            android:text="Pinjam" />
     </LinearLayout>
 
 </ScrollView>

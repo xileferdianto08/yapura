@@ -1,7 +1,7 @@
 package id.ac.umn.yapura;
 
 public class peminjamanAlatList {
-    int qty;
+    int qty, id;
     String namaBarang, startDate, startTime, endDate, endTime, necessity, status, foto, namaUser;
 
     public peminjamanAlatList() {
@@ -15,7 +15,8 @@ public class peminjamanAlatList {
         this.namaUser = namaUser;
     }
 
-    public peminjamanAlatList(int qty, String namaBarang, String startDate, String startTime, String endDate, String endTime, String necessity, String status, String foto, String namaUser) {
+    public peminjamanAlatList(int qty, int id, String namaBarang, String startDate, String startTime, String endDate, String endTime, String necessity, String status, String foto, String namaUser) {
+        this.id = id;
         this.qty = qty;
         this.namaBarang = namaBarang;
         this.startDate = startDate;
@@ -26,6 +27,14 @@ public class peminjamanAlatList {
         this.status = status;
         this.foto = foto;
         this.namaUser = namaUser;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getFoto() {

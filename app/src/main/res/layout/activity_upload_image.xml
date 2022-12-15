@@ -52,13 +52,19 @@
 
         </com.google.android.material.card.MaterialCardView>
 
-        <com.google.android.material.button.MaterialButton
+        <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Upload Image"
             android:layout_marginTop="16dp"
             android:textAllCaps="false"
             android:id="@+id/uploadImageBtn"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Capture Image"
+            android:textAllCaps="false"
+            android:id="@+id/captureImage"/>
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
@@ -68,7 +74,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
-                android:id="@+id/imageImageView"/>
+                android:id="@+id/uploadImageView"/>
         </com.google.android.material.card.MaterialCardView>
 
     </LinearLayout>

@@ -107,7 +107,7 @@ public class LoginPage extends AppCompatActivity {
                                     String name = sessions.getString("nama", "ga masuk");
 
 
-                                    Toast.makeText(LoginPage.this, "Welcome, "+name, Toast.LENGTH_SHORT).show();
+//                                    Toast.makeText(LoginPage.this, "Welcome, "+name, Toast.LENGTH_SHORT).show();
                                 }else if (status.equals("DATA_INCORRECT")){
                                     Toast.makeText(LoginPage.this, "Email atau Password salah", Toast.LENGTH_LONG).show();
                                 }else if (status.equals("EMAIL_INCORRECT_FORMAT")){

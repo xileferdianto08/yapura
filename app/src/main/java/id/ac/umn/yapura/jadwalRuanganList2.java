@@ -1,22 +1,13 @@
 package id.ac.umn.yapura;
 
-public class peminjamanRuanganList {
-    int capacity, id;
-    String namaRuangan, startDate, startTime, endDate, endTime, necessity, status, foto, namaUser;
+public class jadwalRuanganList2 {
+    int capacity;
+    String namaRuangan, startDate, startTime, endDate, endTime, necessity, status, foto;
 
-    public peminjamanRuanganList() {
+    public jadwalRuanganList2() {
     }
 
-    public String getNamaUser() {
-        return namaUser;
-    }
-
-    public void setNamaUser(String namaUser) {
-        this.namaUser = namaUser;
-    }
-
-    public peminjamanRuanganList(int capacity, int id, String namaRuangan, String startDate, String startTime, String endDate, String endTime, String necessity, String status, String foto, String namaUser) {
-        this.id = id;
+    public jadwalRuanganList2(int capacity, String namaRuangan, String startDate, String startTime, String endDate, String endTime, String necessity, String status, String foto) {
         this.capacity = capacity;
         this.namaRuangan = namaRuangan;
         this.startDate = startDate;
@@ -26,15 +17,6 @@ public class peminjamanRuanganList {
         this.necessity = necessity;
         this.status = status;
         this.foto = foto;
-        this.namaUser = namaUser;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getFoto() {

@@ -5,6 +5,9 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-feature android:name="android.hardware.camera"
+        android:required="true"/>
 
     <application
         android:allowBackup="true"
@@ -17,6 +20,19 @@
         android:theme="@style/Theme.Yapura"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity android:name=".AdminUploadImage"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value=""/>
+        </activity>
+        <activity
+            android:name=".StatusRuanganUSer"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".AdminAddRuangan"
             android:exported="false">
@@ -102,6 +118,20 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".BookRuangan"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".BookBarang"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".JadwalRuangan"
             android:exported="false"
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar">
@@ -118,7 +148,15 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".History"
+            android:name=".StatusBarangUser"
+            android:exported="false"
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".StatusRuanganUser"
             android:exported="false"
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar">
             <meta-data
@@ -173,9 +211,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar">
-            >
-        </activity>
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"></activity>
         <activity
             android:name=".PeminjamanPage"
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
