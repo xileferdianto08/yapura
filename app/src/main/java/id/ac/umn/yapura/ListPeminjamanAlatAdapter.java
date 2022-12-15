@@ -77,7 +77,8 @@ public class ListPeminjamanAlatAdapter extends RecyclerView.Adapter<ListPeminjam
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder dialog = new AlertDialog.Builder(context);
-                dialog.setTitle("Persetujuan request peminjaman" + lAlat.getNamaBarang()+ " oleh "+lAlat.getNamaUser());
+                dialog.setTitle("Update status peminjaman");
+                dialog.setMessage("Persetujuan request peminjaman" + lAlat.getNamaBarang()+ " oleh "+lAlat.getNamaUser());
 
                 dialog.setPositiveButton("Approve", new DialogInterface.OnClickListener() {
                     @Override
