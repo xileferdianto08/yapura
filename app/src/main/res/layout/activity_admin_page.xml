@@ -264,8 +264,32 @@
             android:padding="8dp"
             android:weightSum="100">
 
+
             <LinearLayout
                 android:id="@+id/home_linear_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:onClick="backToMain"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_home_gray_24dp" />
+
+                <View
+                    android:layout_width="84dp"
+                    android:layout_height="2dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/colorPrimaryDark"
+                    android:visibility="invisible" />
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="50"
@@ -275,55 +299,7 @@
                     android:layout_width="28dp"
                     android:layout_height="28dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/ic_home_gray_24dp"
-                    />
-
-                <View
-                    android:layout_width="84dp"
-                    android:layout_height="2dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="8dp"
-                    android:background="@color/colorPrimaryDark"
-                    />
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="30"
-
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_baseline_list_alt_24" />
-
-                <View
-                    android:layout_width="84dp"
-                    android:layout_height="2dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="8dp"
-                    android:background="@color/colorPrimaryDark"
-                    android:visibility="invisible"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/logout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="20"
-                android:onClick="toLogout"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"
-                    android:layout_gravity="center"
+                    android:onClick="toLogout"
                     android:src="@drawable/ic_baseline_logout_24" />
 
                 <View
@@ -335,8 +311,6 @@
                     android:visibility="invisible"/>
 
             </LinearLayout>
-
-
         </LinearLayout>
 
     </RelativeLayout>

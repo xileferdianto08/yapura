@@ -96,14 +96,16 @@
                     android:layout_width="28dp"
                     android:layout_height="28dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/ic_baseline_list_alt_24" />
+                    android:onClick="toLogout"
+                    android:src="@drawable/ic_baseline_logout_24" />
 
                 <View
                     android:layout_width="84dp"
                     android:layout_height="2dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="8dp"
-                    android:background="@color/colorPrimaryDark" />
+                    android:background="@color/colorPrimaryDark"
+                    android:visibility="invisible"/>
 
             </LinearLayout>
         </LinearLayout>

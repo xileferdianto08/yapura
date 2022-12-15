@@ -74,46 +74,7 @@ public class BarangAdminAdapter extends RecyclerView.Adapter<BarangAdminAdapter.
                 context.startActivity(intent);
             }
         });
-
-        holder.btnUpdate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intent = new Intent(context, EditBarangAdm.class);
-                intent.putExtra("id", String.valueOf(lBarang.getId()));
-                intent.putExtra("nama", lBarang.getNama());
-                intent.putExtra("maxQty", String.valueOf(lBarang.getMaxQty()));
-                intent.putExtra("desc", lBarang.getDescription());
-                intent.putExtra("foto", lBarang.getFoto());
-                context.startActivity(intent);
-
-            }
-        });
-
-        holder.btnDel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog.Builder dialog = new AlertDialog.Builder(context);
-                dialog.setTitle("Konfirmasi hapus "+lBarang.getNama());
-                dialog.setMessage("Apakah anda yakin untuk menghapus item ini?");
-
-                dialog.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        deleteBarang(lBarang.getId());
-                    }
-                });
-
-                dialog.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
-
-                dialog.create().show();
-            }
-        });
+        
 
 
     }
@@ -132,12 +93,11 @@ public class BarangAdminAdapter extends RecyclerView.Adapter<BarangAdminAdapter.
         public HolderItem(View v){
             super(v);
 
-            foto = (ImageView) v.findViewById(R.id.fotoRuangan);
+            foto = (ImageView) v.findViewById(R.id.fotoBarang);
             nama = (TextView) v.findViewById(R.id.namaRuangan);
             maxQty =(TextView) v.findViewById(R.id.maxQty);
             barangCard = (RelativeLayout) v.findViewById(R.id.barangCard);
-            btnUpdate = (ImageView) v.findViewById(R.id.btnUpdate);
-            btnDel = (ImageView) v.findViewById(R.id.btnDel);
+
         }
 
     }

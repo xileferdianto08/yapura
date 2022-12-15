@@ -1,10 +1,14 @@
 package id.ac.umn.yapura;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -99,6 +103,7 @@ public class ListBarangAdmin extends AppCompatActivity {
 
     }
 
+
     public void toAddBarang(View view){
         startActivity(new Intent(ListBarangAdmin.this, AdminAddBarang.class));
     }
@@ -106,5 +111,33 @@ public class ListBarangAdmin extends AppCompatActivity {
 
     public void backToMain(View view){
         startActivity(new Intent(ListBarangAdmin.this, AdminPage.class));
+    }
+    public void toLogout(View view){
+        AlertDialog.Builder dialog = new AlertDialog.Builder(ListBarangAdmin.this);
+        dialog.setTitle("Anda yakin ingin keluar?");
+
+        dialog.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                SharedPreferences sessions = getSharedPreferences("admin_data", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sessions.edit();
+
+                editor.clear();
+                editor.apply();
+
+
+                startActivity(new Intent(ListBarangAdmin.this, MainActivity.class));
+            }
+        });
+
+        dialog.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        dialog.create();
+        dialog.show();
     }
 }
