@@ -131,8 +131,6 @@ public class RuanganAdminAdapter extends RecyclerView.Adapter<RuanganAdminAdapte
             nama = (TextView) v.findViewById(R.id.namaRuangan);
             maxCapacity =(TextView) v.findViewById(R.id.maxCapacity);
             ruanganCard = (RelativeLayout) v.findViewById(R.id.ruanganCard);
-            btnUpdate = (ImageView) v.findViewById(R.id.btnUpdate);
-            btnDel = (ImageView) v.findViewById(R.id.btnDel);
         }
 
     }
