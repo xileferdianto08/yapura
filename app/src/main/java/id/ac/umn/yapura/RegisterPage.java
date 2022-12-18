@@ -83,12 +83,12 @@ public class RegisterPage extends AppCompatActivity{
 
                                 if(status.equals("OK")){
 
-                                    Intent intent = new Intent(RegisterPage.this, AdminPage.class);
+                                    Intent intent = new Intent(RegisterPage.this, LoginPage.class);
                                     startActivity(intent);
 
                                     Toast.makeText(RegisterPage.this, "Registrasi berhasil, silahkan login", Toast.LENGTH_SHORT).show();
                                 }else if (status.equals("USER_ALREADY_EXIST")){
-                                    Toast.makeText(RegisterPage.this, "Email atau Password salah", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(RegisterPage.this, "Data sudah terdaftar. Silahkan login!", Toast.LENGTH_LONG).show();
                                 }else if (status.equals("EMAIL_INCORRECT_FORMAT")){
                                     Toast.makeText(RegisterPage.this, "Mohon untuk menggunakan email student atau staf UMN!", Toast.LENGTH_LONG).show();
                                 }else if(status.equals("FAILED") || status.equals("DB FAILED")){
@@ -128,6 +128,6 @@ public class RegisterPage extends AppCompatActivity{
     }
 
     public void toLogin(View view){
-        startActivity(new Intent(RegisterPage.this, AdminPage.class));
+        startActivity(new Intent(RegisterPage.this, LoginPage.class));
     }
 }
