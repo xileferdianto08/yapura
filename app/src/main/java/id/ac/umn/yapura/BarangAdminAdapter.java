@@ -74,7 +74,7 @@ public class BarangAdminAdapter extends RecyclerView.Adapter<BarangAdminAdapter.
                 context.startActivity(intent);
             }
         });
-        
+
 
 
     }

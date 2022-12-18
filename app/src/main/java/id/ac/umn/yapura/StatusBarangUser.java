@@ -64,7 +64,7 @@ public class StatusBarangUser extends AppCompatActivity {
 
     private void getData(int userId){
 
-        StringRequest request = new StringRequest(Request.Method.GET, URL_JADWAL_BARANG,
+        StringRequest request = new StringRequest(Request.Method.POST, URL_JADWAL_BARANG,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -73,10 +73,7 @@ public class StatusBarangUser extends AppCompatActivity {
                         Log.d("JSONResponseTotal", String.valueOf(response.length()));
 
                         try {
-                            if(String.valueOf(response.length()).equals("0")){
 
-                                Toast.makeText(StatusBarangUser.this, "Data belum ada", Toast.LENGTH_SHORT).show();
-                            } else {
                                 JSONArray arr = new JSONArray(response);
                                 JSONObject obj = arr.getJSONObject(0);
 
@@ -97,7 +94,7 @@ public class StatusBarangUser extends AppCompatActivity {
 
                                     jadwalAlat.add(newData);
                                 }
-                            }
+
 
                         } catch (JSONException e){
                             e.printStackTrace();
